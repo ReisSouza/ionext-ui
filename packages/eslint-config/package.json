@@ -1,0 +1,10 @@
+{
+  "name": "@ionext-ui/eslint-config",
+  "main": "index.js",
+  "private": true,
+  "license": "ISC",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^1.2.0",
+    "eslint": "^8.35.0"
+  }
+}
