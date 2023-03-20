@@ -1,18 +1,45 @@
 export const colors = {
-  white: '#FFF',
-  black: '#000',
+  'primary-light': '#E7F4FC',
+  'primary-light-hover': '#DAEEFA',
+  'primary-light-active': '#B3DCF4',
 
-  gray100: '#E1E1E6',
-  gray200: '#A9A9B2',
-  gray400: '#7C7C8A',
-  gray500: '#505059',
-  gray600: '#323238',
-  gray700: '#29292E',
-  gray800: '#202024',
-  gray900: '#121214',
+  'primary-normal': '#0A8FDC',
+  'primary-hover': '#086BA5',
+  'primary-active': '#0872B0',
 
-  ignite300: '#00B37E',
-  ignite500: '#00875F',
-  ignite700: '#015F43',
-  ignite900: '#00291D',
+  'primary-dark': '#086BA5',
+  'primary-dark-hover': '#086BA5',
+  'primary-dark-active': '#054063',
+
+  'primary-darkest': '#04324D',
+
+  'secondary-light': '#FCFEEF',
+  'secondary-light-hover': '#FAFEE8',
+  'secondary-light-active': '#F4FDCF',
+
+  'secondary-normal': '#466F87',
+  'secondary-hover': '#3F647A',
+  'secondary-active': '#38596C',
+
+  'secondary-dark': '#A5B94A',
+  'secondary-dark-hover': '#84943B',
+  'secondary-dark-active': '#636F2D',
+
+  'secondary-darkest': '#4D5623',
+
+  'neutral-pure': '#EFEEF4',
+  'neutral-light': '#FFFFFF',
+  'neutral-dark': '#D8D8E2',
+
+  'feedback-success-pure': '#29B309',
+  'feedback-success-light': '#78FF59',
+  'feedback-success-dark': '#1C660A',
+
+  'feedback-help-pure': '#FFD919',
+  'feedback-help-light': '#FFE666',
+  'feedback-help-dark': '#B39400',
+
+  'feedback-error-pure': '#B30B00',
+  'feedback-error-light': '#FF584D',
+  'feedback-error-dark': '#660600',
 }
