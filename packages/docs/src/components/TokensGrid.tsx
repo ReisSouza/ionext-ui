@@ -1,5 +1,3 @@
-import React from 'react'
-
 import '../styles/tokens-grid.css'
 
 interface TokensGridProps {
@@ -7,10 +5,7 @@ interface TokensGridProps {
   hasRemValue?: boolean
 }
 
-export const TokensGrid: React.FC<TokensGridProps> = ({
-  tokens,
-  hasRemValue = false,
-}: TokensGridProps) => {
+export function TokensGrid({ tokens, hasRemValue = false }: TokensGridProps) {
   return (
     <table className="tokens-grid">
       <thead>

@@ -2,7 +2,7 @@ import { Button, ButtonProps } from '@ionext-ui/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 export default {
-  title: 'button',
+  title: 'Button',
   component: Button,
   args: {
     children: 'Enviar',

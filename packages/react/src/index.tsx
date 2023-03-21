@@ -1,5 +1,10 @@
-import { Button } from './components'
-import type { ButtonProps } from './components'
+import { Button, Box, Heading, Text } from './components'
+import type {
+  ButtonProps,
+  BoxProps,
+  HeadingProps,
+  TextProps,
+} from './components'
 
-export { Button }
-export type { ButtonProps }
+export { Button, Box, Heading, Text }
+export type { ButtonProps, BoxProps, HeadingProps, TextProps }

@@ -1,15 +1,15 @@
-import React, { ReactNode, useEffect } from 'react'
-import { VariantProps } from '@stitches/react'
+import React, { ComponentProps, ElementType, ReactNode, useEffect } from 'react'
 
 import * as S from './styles'
 import { Icon } from '../Icon/Icon'
 
-export type ButtonProps = VariantProps<typeof S.Button> & {
+export type ButtonProps = ComponentProps<typeof S.Button> & {
   children: ReactNode
   iconLeft: string
   iconRight: string
   isLoading: boolean
   disabled: boolean
+  as?: ElementType
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -55,6 +55,7 @@ export const Button: React.FC<ButtonProps> = ({
       }
     }
   }, [])
+
   return (
     <S.Button
       data-ripple="#FFF"
