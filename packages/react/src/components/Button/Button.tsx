@@ -39,10 +39,10 @@ export const Button: React.FC<ButtonProps> = ({
           ((pageY - elementRipple.offsetTop) * 100) / elementRipple.offsetHeight
 
         const ripple = document.createElement('span')
-        const rippleCollor = elementRipple.dataset.ripple || '#212129'
+        // const rippleCollor = elementRipple.dataset.ripple || '#212129'
 
         ripple.classList.add('ripple-effect')
-        ripple.style.background = rippleCollor
+        // ripple.style.background = rippleCollor
 
         elementRipple.appendChild(ripple)
 
@@ -58,7 +58,9 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <S.Button
-      data-ripple="#FFF"
+      data-ripple={
+        rest.variant === 'contained' ? '#FFF' : 'rgba(10, 143, 220, 0.08)'
+      }
       className="animation-ripple"
       disabled={disabled}
       size={size}
@@ -71,3 +73,5 @@ export const Button: React.FC<ButtonProps> = ({
     </S.Button>
   )
 }
+
+Button.displayName = 'Button'

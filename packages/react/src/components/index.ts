@@ -7,5 +7,17 @@ export type { BoxProps } from './Box/Box'
 export { Heading } from './Heading/Heading'
 export type { HeadingProps } from './Heading/Heading'
 
-export type { TextProps } from './Text/Text'
 export { Text } from './Text/Text'
+export type { TextProps } from './Text/Text'
+
+export { Avatar } from './Avatar/Avatar'
+export type { AvatarProps } from './Avatar/Avatar'
+
+export { TextField } from './TextField/TextField'
+export type { TextFieldProps } from './TextField/TextField'
+
+export { Checkbox } from './Checkbox/Checkbox'
+export type { CheckboxProps } from './Checkbox/Checkbox'
+
+export { MultiStep } from './MultiStep/MultiStep'
+export type { MultiStepProps } from './MultiStep/MultiStep'

@@ -36,70 +36,27 @@ export const Button = styled('button', {
 
   variants: {
     variant: {
-      primary: {
-        color: '$neutral-light',
-        background: '$primary-normal',
-        '&:hover': {
-          background: '$primary-hover',
-        },
-        '&:active': {
-          background: '$primary-active',
-          '&:hover': {
-            background: '$primary-active',
-          },
-        },
-
+      contained: {
         '& svg': {
-          fill: '$neutral-light',
+          fill: '$white',
         },
-      },
-      secondary: {
-        color: '$neutral-light',
-        background: '$secondary-normal',
-        '&:hover': {
-          background: '$secondary-hover',
-        },
-        '&:active': {
-          background: '$secondary-active',
+        '& .ripple-effect': {
+          background: '#fff',
         },
       },
       text: {
-        background: 'transparent',
-        color: '$primary-normal',
-
-        '&:hover': {
-          textDecoration: 'underline',
-          textUnderlineOffset: '2px',
-          color: '$primary-hover',
-        },
-
-        '&:active': {
-          '&:hover': {
-            textDecoration: 'underline',
-            textUnderlineOffset: '2px',
-            color: '$primary-active',
-          },
-        },
+        background: 'transparent !important',
       },
       outlined: {
-        background: 'none',
-
-        color: '$primary-normal',
         borderWidth: 'thin',
         borderStyle: 'solid',
         borderColor: 'inherit',
-
-        '&:hover': {
-          color: '$primary-hover',
-          background: '$primary-light',
+        background: 'transparent !important',
+        '&:not(:disabled):not(:active):hover': {
+          background: 'transparent',
         },
-
         '&:active': {
-          color: '$primary-active',
-          background: '$primary-light-hover',
-          '&:hover': {
-            color: '$primary-active',
-          },
+          background: 'rgba(255, 255, 255, 0.16) !important',
         },
       },
     },
@@ -135,9 +92,253 @@ export const Button = styled('button', {
         gap: '$2',
       },
     },
+    color: {
+      primary: {
+        color: '$white',
+        background: '$primary-normal',
+        '&:hover': {
+          background: '$primary-hover',
+        },
+        '&:active': {
+          background: '$primary-active',
+          '&:hover': {
+            background: '$primary-active',
+          },
+        },
+      },
+      secondary: {
+        color: '$white',
+        background: '$secondary-normal',
+        '&:hover': {
+          background: '$secondary-hover',
+        },
+        '&:active': {
+          background: '$secondary-active',
+        },
+      },
+      danger: {
+        color: '$white',
+        background: '$feedback-error-normal',
+        '&:hover': {
+          background: '$feedback-error-hover',
+        },
+        '&:active': {
+          background: '$feedback-error-active',
+        },
+      },
+      success: {
+        color: '$white',
+        background: '$feedback-success-normal',
+        '&:hover': {
+          background: '$feedback-success-hover',
+        },
+        '&:active': {
+          background: '$feedback-success-active',
+        },
+      },
+    },
   },
+  compoundVariants: [
+    {
+      color: 'primary',
+      variant: 'outlined',
+      css: {
+        '& .ripple-effect': {
+          background: 'rgba(10, 143, 220, 0.08)',
+        },
+        '& svg': {
+          fill: '$primary-normal',
+        },
+        color: '$primary-normal',
+        '&:not(:disabled):not(:active):hover': {
+          color: '$primary-hover',
+          '& svg': {
+            fill: '$primary-hover',
+          },
+        },
+        '&:active': {
+          color: '$primary-active',
+          '& svg': {
+            fill: '$primary-active',
+          },
+        },
+      },
+    },
+    {
+      color: 'secondary',
+      variant: 'outlined',
+      css: {
+        '& .ripple-effect': {
+          background: 'rgba(70, 111, 135, 0.08)',
+        },
+        '& svg': {
+          fill: '$secondary-normal',
+        },
+        color: '$secondary-normal',
+        '&:not(:disabled):not(:active):hover': {
+          color: '$secondary-hover',
+          '& svg': {
+            fill: '$secondary-hover',
+          },
+        },
+        '&:active': {
+          color: '$secondary-dark-active',
+          '& svg': {
+            fill: '$secondary-active',
+          },
+        },
+      },
+    },
+    {
+      color: 'primary',
+      variant: 'text',
+      css: {
+        '& .ripple-effect': {
+          background: 'rgba(10, 143, 220, 0.08)',
+        },
+        color: '$primary-normal',
+        '& svg': {
+          fill: '$primary-normal',
+        },
+        '&:not(:disabled):not(:active):hover': {
+          color: '$primary-hover',
+          '& svg': {
+            fill: '$primary-hover',
+          },
+        },
+        '&:active': {
+          color: '$primary-dark-active',
+          background: 'rgba(255, 255, 255, 0.16) !important',
+          '& svg': {
+            fill: '$primary-active',
+          },
+        },
+      },
+    },
+    {
+      color: 'secondary',
+      variant: 'text',
+      css: {
+        '& .ripple-effect': {
+          background: 'rgba(70, 111, 135, 0.08) !important',
+        },
+        '& svg': {
+          fill: '$secondary-normal',
+        },
+        color: '$secondary-normal',
+        '&:not(:disabled):not(:active):hover': {
+          color: '$secondary-hover',
+          '& svg': {
+            fill: '$secondary-hover',
+          },
+        },
+        '&:active': {
+          color: '$secondary-dark-active',
+          background: 'rgba(255, 255, 255, 0.16) !important',
+          '& svg': {
+            fill: '$secondary-dark-active',
+          },
+        },
+      },
+    },
+    {
+      color: 'danger',
+      variant: 'text',
+      css: {
+        '& .ripple-effect': {
+          background: 'rgba(204, 57, 46, 0.04)',
+        },
+        '& svg': {
+          fill: '$feedback-error-normal',
+        },
+        color: '$feedback-error-normal',
+        '&:not(:disabled):not(:active):hover': {
+          color: '$feedback-error-hover',
+          '& svg': {
+            fill: '$feedback-error-hover',
+          },
+        },
+        '&:active': {
+          background: 'rgba(255, 255, 255, 0.16) !important',
+        },
+      },
+    },
+    {
+      color: 'danger',
+      variant: 'outlined',
+      css: {
+        '& .ripple-effect': {
+          background: 'rgba(204, 57, 46, 0.04)',
+        },
+        '& svg': {
+          fill: '$feedback-error-normal',
+        },
+        color: '$feedback-error-normal',
+        '&:not(:disabled):not(:active):hover': {
+          color: '$feedback-error-hover',
+          '& svg': {
+            fill: '$feedback-error-hover',
+          },
+        },
+        '&:active': {
+          color: '$feedback-error-active',
+          '& svg': {
+            fill: '$feedback-error-active',
+          },
+        },
+      },
+    },
+    {
+      color: 'success',
+      variant: 'outlined',
+      css: {
+        '& .ripple-effect': {
+          background: 'rgba(46, 204, 86, 0.04)',
+        },
+        '& svg': {
+          fill: '$feedback-success-normal',
+        },
+        color: '$feedback-success-normal',
+        '&:not(:disabled):not(:active):hover': {
+          color: '$feedback-success-hover',
+          '& svg': {
+            fill: '$feedback-success-hover',
+          },
+        },
+        '&:active': {
+          color: '$feedback-success-active',
+          '& svg': {
+            fill: '$feedback-success-active',
+          },
+        },
+      },
+    },
+    {
+      color: 'success',
+      variant: 'text',
+      css: {
+        '& .ripple-effect': {
+          background: 'rgba(46, 204, 86, 0.04)',
+        },
+        color: '$feedback-success-normal',
+        '& svg': {
+          fill: '$feedback-success-normal',
+        },
+        '&:not(:disabled):not(:active):hover': {
+          color: '$feedback-success-hover',
+          '& svg': {
+            fill: '$feedback-success-hover',
+          },
+        },
+        '&:active': {
+          background: 'rgba(255, 255, 255, 0.16) !important',
+        },
+      },
+    },
+  ],
   defaultVariants: {
     size: 'medium',
-    variant: 'primary',
+    variant: 'outlined',
+    color: 'primary',
   },
 })

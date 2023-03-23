@@ -6,6 +6,8 @@ import {
   lineHeights,
   radii,
   space,
+  borderWidths,
+  shadows,
 } from '@ionext-ui/tokens'
 
 import { createStitches, defaultThemeMap } from '@stitches/react'
@@ -26,5 +28,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, config } =
       lineHeights,
       radii,
       space,
+      borderWidths,
+      shadows,
     },
   })

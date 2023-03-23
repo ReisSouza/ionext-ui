@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { ComponentProps } from 'react'
 import * as S from './styles'
 import iconSet from '../../assets/icons.json'
 import { CSS } from '../../types/css'
 
-type IconProps = {
+type IconProps = ComponentProps<typeof S.Icon> & {
   color?: CSS['color']
   size: string | number
   icon: string
@@ -18,7 +18,7 @@ export const Icon: React.FC<IconProps> = ({
 }: IconProps) => {
   return (
     <S.Icon
-      css={{ fill: color }}
+      css={{ fill: color || 'inherit' }}
       className={className}
       iconSet={iconSet}
       size={size}

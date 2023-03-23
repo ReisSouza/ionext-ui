@@ -41,17 +41,21 @@ export const colors = {
 
   'dark-darkest': '#1C1C1F',
 
-  'feedback-success-normal': '#29B309',
-  'feedback-success-hover': '#78FF59',
-  'feedback-success-active': '#1C660A',
+  'feedback-success-light': '#EAFAEE',
+  'feedback-success-normal': '#2ECC56',
+  'feedback-success-hover': '#29B84D',
+  'feedback-success-active': '#25A345',
+  'feedback-success-darkest': '#10471E',
 
   'feedback-help-normal': '#FFD919',
   'feedback-help-hover': '#FFE666',
   'feedback-help-active': '#B39400',
 
-  'feedback-error-normal': '#B30B00',
-  'feedback-error-hover': '#FF584D',
-  'feedback-error-active': '#660600',
+  'feedback-error-light': '#FAEBEA',
+  'feedback-error-normal': '#CC392E',
+  'feedback-error-hover': '#B83329',
+  'feedback-error-active': '#A32E25',
+  'feedback-error-darkest': '#471410',
 
   white: '#ffffff',
   black: '#111827',
