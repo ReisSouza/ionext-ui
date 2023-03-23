@@ -1,6 +1,7 @@
 {
   "name": "@ionext-ui/eslint-config",
   "main": "index.js",
+  "version": "1.0.1",
   "private": true,
   "license": "ISC",
   "devDependencies": {
