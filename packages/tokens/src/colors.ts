@@ -62,4 +62,6 @@ export const colors = {
 
   border: '#E6E6E6',
   background: '#F4F7FE',
+
+  teste: '#FFF',
 }
