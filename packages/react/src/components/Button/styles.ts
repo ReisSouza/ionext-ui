@@ -13,6 +13,8 @@ export const Button = styled('button', {
   transition: 'all 250ms linear',
 
   display: 'flex',
+  width: 'fit-content',
+  minWidth: '120px',
   alignItems: 'center',
   justifyContent: 'center',
 
@@ -39,6 +41,9 @@ export const Button = styled('button', {
       contained: {
         '& svg': {
           fill: '$white',
+          '& path': {
+            fill: '$white',
+          },
         },
         '& .ripple-effect': {
           background: '#fff',
@@ -125,6 +130,12 @@ export const Button = styled('button', {
         '&:active': {
           background: '$feedback-error-active',
         },
+        '& svg': {
+          fill: '$white',
+          '& path': {
+            fill: '$white',
+          },
+        },
       },
       success: {
         color: '$white',
@@ -148,6 +159,9 @@ export const Button = styled('button', {
         },
         '& svg': {
           fill: '$primary-normal',
+          '& path': {
+            fill: '$primary-normal',
+          },
         },
         color: '$primary-normal',
         '&:not(:disabled):not(:active):hover': {
@@ -160,6 +174,9 @@ export const Button = styled('button', {
           color: '$primary-active',
           '& svg': {
             fill: '$primary-active',
+            '& path': {
+              fill: '$primary-active',
+            },
           },
         },
       },
@@ -199,11 +216,17 @@ export const Button = styled('button', {
         color: '$primary-normal',
         '& svg': {
           fill: '$primary-normal',
+          '& path': {
+            fill: '$primary-normal',
+          },
         },
         '&:not(:disabled):not(:active):hover': {
           color: '$primary-hover',
           '& svg': {
             fill: '$primary-hover',
+            '& path': {
+              fill: '$primary-hover',
+            },
           },
         },
         '&:active': {
@@ -224,12 +247,18 @@ export const Button = styled('button', {
         },
         '& svg': {
           fill: '$secondary-normal',
+          '& path': {
+            fill: '$secondary-normal',
+          },
         },
         color: '$secondary-normal',
         '&:not(:disabled):not(:active):hover': {
           color: '$secondary-hover',
           '& svg': {
             fill: '$secondary-hover',
+            '& path': {
+              fill: '$secondary-hover',
+            },
           },
         },
         '&:active': {
@@ -237,6 +266,9 @@ export const Button = styled('button', {
           background: 'rgba(255, 255, 255, 0.16) !important',
           '& svg': {
             fill: '$secondary-dark-active',
+            '& path': {
+              fill: '$secondary-dark-active',
+            },
           },
         },
       },
@@ -249,13 +281,19 @@ export const Button = styled('button', {
           background: 'rgba(204, 57, 46, 0.04)',
         },
         '& svg': {
-          fill: '$feedback-error-normal',
+          fill: '$feedback-error-normal !important',
+          '& path': {
+            fill: '$feedback-error-normal !important',
+          },
         },
         color: '$feedback-error-normal',
         '&:not(:disabled):not(:active):hover': {
           color: '$feedback-error-hover',
           '& svg': {
-            fill: '$feedback-error-hover',
+            fill: '$feedback-error-normal !important',
+            '& path': {
+              fill: '$feedback-error-normal !important',
+            },
           },
         },
         '&:active': {
@@ -271,13 +309,19 @@ export const Button = styled('button', {
           background: 'rgba(204, 57, 46, 0.04)',
         },
         '& svg': {
-          fill: '$feedback-error-normal',
+          fill: '$feedback-error-normal !important',
+          '& path': {
+            fill: '$feedback-error-normal !important',
+          },
         },
         color: '$feedback-error-normal',
         '&:not(:disabled):not(:active):hover': {
           color: '$feedback-error-hover',
           '& svg': {
-            fill: '$feedback-error-hover',
+            fill: '$feedback-error-normal !important',
+            '& path': {
+              fill: '$feedback-error-normal !important',
+            },
           },
         },
         '&:active': {
@@ -297,18 +341,27 @@ export const Button = styled('button', {
         },
         '& svg': {
           fill: '$feedback-success-normal',
+          '& path': {
+            fill: '$feedback-success-normal',
+          },
         },
         color: '$feedback-success-normal',
         '&:not(:disabled):not(:active):hover': {
           color: '$feedback-success-hover',
           '& svg': {
             fill: '$feedback-success-hover',
+            '& path': {
+              fill: '$feedback-success-hover',
+            },
           },
         },
         '&:active': {
           color: '$feedback-success-active',
           '& svg': {
             fill: '$feedback-success-active',
+            '& path': {
+              fill: '$feedback-success-active',
+            },
           },
         },
       },
@@ -338,7 +391,7 @@ export const Button = styled('button', {
   ],
   defaultVariants: {
     size: 'medium',
-    variant: 'outlined',
+    variant: 'contained',
     color: 'primary',
   },
 })

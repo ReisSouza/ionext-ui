@@ -35,18 +35,16 @@ export default {
         type: 'inline-radio',
       },
     },
-    argTypes: {
-      iconLeft: {
-        options: icons,
-        control: {
-          type: 'select',
-        },
+    iconLeft: {
+      options: icons,
+      control: {
+        type: 'select',
       },
-      iconRight: {
-        options: icons,
-        control: {
-          type: 'select',
-        },
+    },
+    iconRight: {
+      options: icons,
+      control: {
+        type: 'select',
       },
     },
   },

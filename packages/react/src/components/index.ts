@@ -21,3 +21,7 @@ export type { CheckboxProps } from './Checkbox/Checkbox'
 
 export { MultiStep } from './MultiStep/MultiStep'
 export type { MultiStepProps } from './MultiStep/MultiStep'
+
+export { Toast, ToastProvider } from './Toast/Toast'
+
+export type { ToastProps } from './Toast/Toast'

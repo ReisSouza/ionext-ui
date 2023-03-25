@@ -5,10 +5,10 @@ import { Icon } from '../Icon/Icon'
 
 export type ButtonProps = ComponentProps<typeof S.Button> & {
   children: ReactNode
-  iconLeft: string
-  iconRight: string
-  isLoading: boolean
-  disabled: boolean
+  iconLeft?: string
+  iconRight?: string
+  isLoading?: boolean
+  disabled?: boolean
   as?: ElementType
 }
 
