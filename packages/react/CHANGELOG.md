@@ -1,5 +1,11 @@
 # @ionext-ui/react
 
+## 2.3.0
+
+### Minor Changes
+
+- updated method for export components
+
 ## 2.2.0
 
 ### Minor Changes
