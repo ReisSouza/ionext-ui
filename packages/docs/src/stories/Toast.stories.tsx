@@ -1,5 +1,5 @@
 import type { Meta, Story } from '@storybook/react'
-import { Box, Button, Toast, ToastProps, ToastProvider } from '@ionext-ui/react'
+import { Box, Button, Toast, ToastProps } from '@ionext-ui/react'
 import { useState } from 'react'
 
 const renderToast = {
@@ -25,9 +25,19 @@ const renderToast = {
 export default {
   title: 'Display/Toast',
   component: Toast,
-  args: {},
+  args: {
+    variant: 'default',
+  },
 
-  argTypes: {},
+  argTypes: {
+    variant: {
+      options: ['default', 'warning', 'danger', 'success'],
+      control: {
+        type: 'inline-radio',
+      },
+    },
+    open: { control: { type: 'boolean' } },
+  },
   decorators: [
     (Story) => {
       return (
@@ -49,20 +59,18 @@ const TemplateSuccess: Story<ToastProps> = (args) => {
   const [open, setOpen] = useState(false)
   return (
     <>
-      <ToastProvider>
-        <Toast
-          {...args}
-          open={open}
-          variant="success"
-          title="Conta criada com sucesso."
-          description="Sua conta foi criado com sucesso, para mais informações acesse seu email!"
-          onOpenChange={setOpen}
-        />
+      <Toast
+        {...args}
+        open={open}
+        variant="success"
+        title="Conta criada com sucesso."
+        description="Sua conta foi criado com sucesso, para mais informações acesse seu email!"
+        onOpenChange={setOpen}
+      />
 
-        <Button color="success" onClick={() => setOpen(true)}>
-          teste
-        </Button>
-      </ToastProvider>
+      <Button color="success" onClick={() => setOpen(true)}>
+        teste
+      </Button>
     </>
   )
 }
@@ -73,20 +81,18 @@ const TemplateDanger: Story<ToastProps> = (args) => {
   const [open, setOpen] = useState(false)
   return (
     <>
-      <ToastProvider>
-        <Toast
-          {...args}
-          open={open}
-          variant="danger"
-          title="Conta deletada com sucesso."
-          description="Sua conta foi deletada com sucesso, não sera mais possível acessa as informações dessa conta!"
-          onOpenChange={setOpen}
-        />
+      <Toast
+        {...args}
+        open={open}
+        variant="danger"
+        title="Conta deletada com sucesso."
+        description="Sua conta foi deletada com sucesso, não sera mais possível acessa as informações dessa conta!"
+        onOpenChange={setOpen}
+      />
 
-        <Button color="danger" onClick={() => setOpen(true)}>
-          teste
-        </Button>
-      </ToastProvider>
+      <Button color="danger" onClick={() => setOpen(true)}>
+        teste
+      </Button>
     </>
   )
 }
@@ -97,20 +103,18 @@ const TemplateWarning: Story<ToastProps> = (args) => {
   const [open, setOpen] = useState(false)
   return (
     <>
-      <ToastProvider>
-        <Toast
-          {...args}
-          open={open}
-          variant="warning"
-          title="Alertar "
-          description="Para deletar sua conta e preciso que não haja vinculo com consultas futuras"
-          onOpenChange={setOpen}
-        />
+      <Toast
+        {...args}
+        open={open}
+        variant="warning"
+        title="Alertar "
+        description="Para deletar sua conta e preciso que não haja vinculo com consultas futuras"
+        onOpenChange={setOpen}
+      />
 
-        <Button color="secondary" onClick={() => setOpen(true)}>
-          teste
-        </Button>
-      </ToastProvider>
+      <Button color="secondary" onClick={() => setOpen(true)}>
+        teste
+      </Button>
     </>
   )
 }
@@ -128,67 +132,65 @@ const TemplatePilha: Story<ToastProps> = (args) => {
   >([])
   return (
     <>
-      <ToastProvider>
-        {listOfToast.map((tostItem) => {
-          return (
-            <Toast
-              key={tostItem.id}
-              {...args}
-              variant={tostItem.variant as 'success' | 'danger' | 'warning'}
-              title={tostItem.title + tostItem.id}
-              description={tostItem.description}
-            />
-          )
-        })}
-        <Button
-          onClick={() =>
-            setListOfToast((prevState) => {
-              return [
-                ...prevState,
-                {
-                  ...renderToast.success,
-                  id: prevState.length + 1,
-                },
-              ]
-            })
-          }
-          color="success"
-        >
-          Delete With Alerter
-        </Button>
-        <Button
-          onClick={() =>
-            setListOfToast((prevState) => {
-              return [
-                ...prevState,
-                {
-                  ...renderToast.danger,
-                  id: prevState.length + 1,
-                },
-              ]
-            })
-          }
-          color="danger"
-        >
-          Delete With Alerter
-        </Button>
-        <Button
-          onClick={() =>
-            setListOfToast((prevState) => {
-              return [
-                ...prevState,
-                {
-                  ...renderToast.warning,
-                  id: prevState.length + 1,
-                },
-              ]
-            })
-          }
-          color="secondary"
-        >
-          Delete
-        </Button>
-      </ToastProvider>
+      {listOfToast.map((tostItem) => {
+        return (
+          <Toast
+            key={tostItem.id}
+            {...args}
+            variant={tostItem.variant as 'success' | 'danger' | 'warning'}
+            title={tostItem.title + tostItem.id}
+            description={tostItem.description}
+          />
+        )
+      })}
+      <Button
+        onClick={() =>
+          setListOfToast((prevState) => {
+            return [
+              ...prevState,
+              {
+                ...renderToast.success,
+                id: prevState.length + 1,
+              },
+            ]
+          })
+        }
+        color="success"
+      >
+        Delete With Alerter
+      </Button>
+      <Button
+        onClick={() =>
+          setListOfToast((prevState) => {
+            return [
+              ...prevState,
+              {
+                ...renderToast.danger,
+                id: prevState.length + 1,
+              },
+            ]
+          })
+        }
+        color="danger"
+      >
+        Delete With Alerter
+      </Button>
+      <Button
+        onClick={() =>
+          setListOfToast((prevState) => {
+            return [
+              ...prevState,
+              {
+                ...renderToast.warning,
+                id: prevState.length + 1,
+              },
+            ]
+          })
+        }
+        color="secondary"
+      >
+        Delete
+      </Button>
     </>
   )
 }

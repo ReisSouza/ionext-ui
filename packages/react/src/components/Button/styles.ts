@@ -6,9 +6,10 @@ export const scaleUp = keyframes({
 })
 
 export const Button = styled('button', {
+  all: 'unset',
   border: 'none',
   position: 'relative',
-
+  boxSizing: 'border-box',
   outline: 'none',
   transition: 'all 250ms linear',
 

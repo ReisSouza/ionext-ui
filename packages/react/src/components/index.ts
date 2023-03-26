@@ -25,3 +25,6 @@ export type { MultiStepProps } from './MultiStep/MultiStep'
 export { Toast, ToastProvider } from './Toast/Toast'
 
 export type { ToastProps } from './Toast/Toast'
+
+export { Tooltip } from './Tooltip/Tooltip'
+export type { TooltipProps } from './Tooltip/Tooltip'

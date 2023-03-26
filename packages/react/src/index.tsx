@@ -9,7 +9,9 @@ import {
   MultiStep,
   Toast,
   ToastProvider,
+  Tooltip,
 } from './components'
+
 import type {
   ButtonProps,
   BoxProps,
@@ -20,6 +22,7 @@ import type {
   CheckboxProps,
   MultiStepProps,
   ToastProps,
+  TooltipProps,
 } from './components'
 
 export {
@@ -33,7 +36,7 @@ export {
   MultiStep,
   Toast,
   ToastProvider,
-  ToastProps,
+  Tooltip,
 }
 export type {
   ButtonProps,
@@ -44,4 +47,6 @@ export type {
   TextFieldProps,
   CheckboxProps,
   MultiStepProps,
+  ToastProps,
+  TooltipProps,
 }

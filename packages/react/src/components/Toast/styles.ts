@@ -1,5 +1,23 @@
-import { styled } from '@/styles'
 import * as Toast from '@radix-ui/react-toast'
+
+import { keyframes, styled } from '@/styles'
+
+const VIEWPORT_PADDING = 25
+
+const hide = keyframes({
+  '0%': { opacity: 1 },
+  '100%': { opacity: 0 },
+})
+
+const slideIn = keyframes({
+  from: { transform: `translateX(calc(100% + ${VIEWPORT_PADDING}px))` },
+  to: { transform: 'translateX(0)' },
+})
+
+const swipeOut = keyframes({
+  from: { transform: 'translateX(var(--radix-toast-swipe-end-x))' },
+  to: { transform: `translateX(calc(100% + ${VIEWPORT_PADDING}px))` },
+})
 
 export const Root = styled(Toast.Root, {
   backgroundColor: 'white',
@@ -11,6 +29,28 @@ export const Root = styled(Toast.Root, {
   gap: '$4',
   alignItems: 'center',
   justifyContent: 'space-between',
+
+  '&[data-state="open"]': {
+    animation: `${slideIn} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+  },
+
+  '&[data-state="closed"]': {
+    animation: `${hide} 100ms ease-in`,
+  },
+
+  '&[data-swipe="move"]': {
+    transform: 'translateX(var(--radix-toast-swipe-move-x))',
+  },
+
+  '&[data-swipe="cancel"]': {
+    transform: 'translateX(0)',
+    transition: 'transform 200ms ease-out',
+  },
+
+  '&[data-swipe="end"]': {
+    animation: `${swipeOut} 100ms ease-out`,
+  },
+
   variants: {
     variant: {
       danger: {
@@ -36,49 +76,6 @@ export const Root = styled(Toast.Root, {
   },
   defaultVariants: {},
 })
-// .ToastRoot[data-state='open'] {
-//     animation: slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
-//   }
-//   .ToastRoot[data-state='closed'] {
-//     animation: hide 100ms ease-in;
-//   }
-//   .ToastRoot[data-swipe='move'] {
-//     transform: translateX(var(--radix-toast-swipe-move-x));
-//   }
-//   .ToastRoot[data-swipe='cancel'] {
-//     transform: translateX(0);
-//     transition: transform 200ms ease-out;
-//   }
-//   .ToastRoot[data-swipe='end'] {
-//     animation: swipeOut 100ms ease-out;
-//   }
-
-// @keyframes hide {
-//     from {
-//       opacity: 1;
-//     }
-//     to {
-//       opacity: 0;
-//     }
-//   }
-
-//   @keyframes slideIn {
-//     from {
-//       transform: translateX(calc(100% + var(--viewport-padding)));
-//     }
-//     to {
-//       transform: translateX(0);
-//     }
-//   }
-
-//   @keyframes swipeOut {
-//     from {
-//       transform: translateX(var(--radix-toast-swipe-end-x));
-//     }
-//     to {
-//       transform: translateX(calc(100% + var(--viewport-padding)));
-//     }
-//   }
 
 export const Section = styled('section', {
   gap: '$2',
@@ -141,17 +138,24 @@ export const Action = styled(Toast.Action, {
 
 export const Close = styled(Toast.Close, {
   all: 'unset',
+  padding: '$1',
+  transition: 'all 250ms ease-out',
+
+  '&:hover': {
+    background: '$border',
+    borderRadius: '$full',
+  },
 })
 
 export const Viewport = styled(Toast.Viewport, {
   position: 'fixed',
   bottom: 0,
   right: 0,
-  display: ' flex',
-  flexDirection: ' column',
-  padding: '25px',
-  gap: '10px',
-  width: '390px',
+  display: 'flex',
+  flexDirection: 'column',
+  padding: VIEWPORT_PADDING,
+  gap: 10,
+  width: 390,
   maxWidth: '100vw',
   margin: 0,
   listStyle: 'none',
