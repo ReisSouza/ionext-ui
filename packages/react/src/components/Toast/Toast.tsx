@@ -1,11 +1,11 @@
-import React, { ComponentProps } from 'react'
+import React, { ComponentProps, ReactNode } from 'react'
 import * as ToastPrimitive from '@radix-ui/react-toast'
 import * as S from './styles'
 import { Icon } from '../Icon/Icon'
-
-export type ToastProps = ComponentProps<typeof S.Root> & {
-  title: string
-  description: string
+export type ToastCSSType = ComponentProps<typeof S.Root>
+export type ToastProps = Omit<ToastCSSType, 'title'> & {
+  title: ReactNode
+  description: ReactNode
 }
 
 export const Toast: React.FC<ToastProps> = ({

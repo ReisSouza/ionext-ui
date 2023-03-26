@@ -63,5 +63,5 @@ export const colors = {
   border: '#E6E6E6',
   background: '#F4F7FE',
 
-  text: '$dark-dark-active',
+  text: '#242428',
 }
