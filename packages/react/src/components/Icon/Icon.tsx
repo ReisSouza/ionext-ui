@@ -10,19 +10,21 @@ type IconProps = ComponentProps<typeof S.Icon> & {
   className?: string
 }
 
-export const Icon: React.FC<IconProps> = ({
+export const Icon: React.FC<Omit<IconProps, 'iconSet'>> = ({
   icon,
   size,
   className,
   color,
-}: IconProps) => {
+}: Omit<IconProps, 'iconSet'>) => {
   return (
-    <S.Icon
-      css={{ fill: color || 'inherit' }}
-      className={className}
-      iconSet={iconSet}
-      size={size}
-      icon={icon}
-    />
+    <div>
+      <S.Icon
+        css={{ fill: color || 'inherit' }}
+        className={className}
+        iconSet={iconSet}
+        size={size}
+        icon={icon}
+      />
+    </div>
   )
 }

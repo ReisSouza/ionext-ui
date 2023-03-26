@@ -1,5 +1,17 @@
 # @ionext-ui/react
 
+## 2.4.1
+
+### Patch Changes
+
+- adjustment icon in button
+
+## 2.4.0
+
+### Minor Changes
+
+- adjustments in props component textField
+
 ## 2.3.0
 
 ### Minor Changes

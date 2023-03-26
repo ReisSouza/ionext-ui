@@ -8,11 +8,11 @@ export type TextFieldProps = Omit<ComponentProps<typeof S.Input>, 'size'> &
   VariantProps<typeof S.WrappedInput> & {
     hint?: string
     label?: string
-    iconLeft: string
-    iconRight: string
-    onPressIcon: () => void
-    size: 'small' | 'medium' | 'large'
-    status: 'default' | 'error' | 'warning' | 'success' | 'info'
+    iconLeft?: string
+    iconRight?: string
+    onPressIcon?: () => void
+    size?: 'small' | 'medium' | 'large'
+    status?: 'default' | 'error' | 'warning' | 'success' | 'info'
     hasIconHint?: boolean
     iconHintName?: string
   }
