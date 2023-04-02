@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+       - master
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
