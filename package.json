@@ -13,8 +13,8 @@
     "lint-staged-husky": "lint-staged",
     "prepare": "husky install",
     "tsc": "turbo tsc",
-    "storybook": "turbo storybook",
-    "storybook-build": "turbo storybook-build",
+    "storybook": "STORYBOOK_TELEMETRY_DEBUG=1 turbo storybook",
+    "storybook-build": "STORYBOOK_TELEMETRY_DEBUG=1 turbo storybook-build",
     "format-lint": "prettier --config .prettierrc --check --ignore-unknown .",
     "format-fix": "prettier --config .prettierrc --write --ignore-unknown -l ."
   },
