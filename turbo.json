@@ -5,13 +5,20 @@
       "cache": false
     },
     "build": {
-      "outputs": [
-        "dist/**",
-        "storybook-static/**"
-      ],
-      "dependsOn": [
-        "^build"
-      ]
+      "outputs": ["dist/**", "storybook-static/**"],
+      "dependsOn": ["^build"]
+    },
+    "storybook": {
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "dependsOn": ["build"]
+    },
+    "tsc": {
+      "dependsOn": ["build"]
+    },
+    "update-dependencies": {
+      "cache": false
     }
   }
 }

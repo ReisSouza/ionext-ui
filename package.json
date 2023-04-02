@@ -8,10 +8,22 @@
     "build": "turbo run build",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=!docs && changeset publish"
+    "release": "turbo run build --filter=!docs && changeset publish",
+    "lint": "turbo run lint",
+    "lint-staged-husky": "lint-staged",
+    "prepare": "husky install",
+    "tsc": "turbo tsc",
+    "storybook": "turbo storybook",
+    "storybook-build": "turbo storybook-build",
+    "format-lint": "prettier --config .prettierrc --check --ignore-unknown .",
+    "format-fix": "prettier --config .prettierrc --write --ignore-unknown -l ."
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
+    "husky": "^8.0.3",
+    "lint": "^0.8.19",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
     "turbo": "^1.5.5"
   }
 }
