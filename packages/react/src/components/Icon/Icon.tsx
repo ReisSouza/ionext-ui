@@ -1,30 +1,19 @@
-import React, { ComponentProps } from 'react'
-import * as S from './styles'
-import iconSet from '../../assets/icons.json'
-import { CSS } from '../../types/css'
+import React, { ComponentProps, useEffect, useState } from 'react'
+import { Slot } from '@radix-ui/react-slot'
+import IcomoonReact from 'icomoon-react'
+type IconProps = ComponentProps<typeof IcomoonReact> & {}
 
-type IconProps = ComponentProps<typeof S.Icon> & {
-  color?: CSS['color']
-  size: string | number
-  icon: string
-  className?: string
-}
+export const Icon: React.FC<IconProps> = ({ ...props }: IconProps) => {
+  const [canShow, setCanShow] = useState(false)
+  useEffect(() => {
+    setCanShow(true)
+  }, [])
 
-export const Icon: React.FC<Omit<IconProps, 'iconSet'>> = ({
-  icon,
-  size,
-  className,
-  color,
-}: Omit<IconProps, 'iconSet'>) => {
+  if (!canShow) return <></>
+
   return (
-    <div>
-      <S.Icon
-        css={{ fill: color || 'inherit' }}
-        className={className}
-        iconSet={iconSet}
-        size={size}
-        icon={icon}
-      />
-    </div>
+    <Slot>
+      <IcomoonReact {...props} />
+    </Slot>
   )
 }

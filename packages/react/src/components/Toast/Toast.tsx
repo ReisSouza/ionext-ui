@@ -1,8 +1,11 @@
-import React, { ComponentProps, ReactNode } from 'react'
+import { WarningCircle, X } from 'phosphor-react'
 import * as ToastPrimitive from '@radix-ui/react-toast'
+import React, { ComponentProps, ReactNode } from 'react'
+
 import * as S from './styles'
-import { Icon } from '../Icon/Icon'
+
 export type ToastCSSType = ComponentProps<typeof S.Root>
+
 export type ToastProps = Omit<ToastCSSType, 'title'> & {
   title: ReactNode
   description: ReactNode
@@ -17,14 +20,14 @@ export const Toast: React.FC<ToastProps> = ({
     <>
       <S.Root {...rest}>
         <S.Section variant={rest.variant}>
-          <Icon icon="Error-Circle" size={36} />
+          <WarningCircle size={36} />
           <S.WrappedContent>
             {title && <S.Title>{title}</S.Title>}
             {description && <S.Description>{description}</S.Description>}
           </S.WrappedContent>
         </S.Section>
         <S.Close>
-          <Icon icon="Dismiss" size={24} />
+          <X size={24} />
         </S.Close>
       </S.Root>
     </>

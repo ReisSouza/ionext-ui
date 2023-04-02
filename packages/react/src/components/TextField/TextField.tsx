@@ -1,20 +1,19 @@
-import { ComponentProps, forwardRef, ElementRef, useId } from 'react'
 import { VariantProps } from '@stitches/react'
+import { WarningCircle } from 'phosphor-react'
+import { ComponentProps, forwardRef, ElementRef, useId, ReactNode } from 'react'
 
-import { Icon } from '@/components/Icon/Icon'
 import * as S from './styles'
 
 export type TextFieldProps = Omit<ComponentProps<typeof S.Input>, 'size'> &
   VariantProps<typeof S.WrappedInput> & {
     hint?: string
     label?: string
-    iconLeft?: string
-    iconRight?: string
+    iconLeft?: ReactNode
+    iconRight?: ReactNode
     onPressIcon?: () => void
     size?: 'small' | 'medium' | 'large'
     status?: 'default' | 'error' | 'warning' | 'success' | 'info'
     hasIconHint?: boolean
-    iconHintName?: string
   }
 
 export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
@@ -26,7 +25,6 @@ export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
       label,
       hint,
       hasIconHint,
-      iconHintName,
       variant,
       status,
       ...props
@@ -42,14 +40,13 @@ export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
           </S.Label>
         )}
         <S.WrappedInput variant={variant} size={size}>
-          {iconLeft && <Icon icon={iconLeft} size={24} />}
+          {iconLeft && iconLeft}
           <S.Input size={size} id={id} ref={ref} {...props} />
-          {iconRight && <Icon icon={iconRight} size={24} />}
+          {iconRight && iconRight}
         </S.WrappedInput>
         {hint && (
           <S.Hint>
-            {iconHintName || status !== 'default'}
-            <Icon size={24} icon={iconHintName || 'info'} />
+            {hasIconHint && <WarningCircle size={24} />}
             {hint}
           </S.Hint>
         )}

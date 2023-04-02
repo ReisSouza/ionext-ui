@@ -1,12 +1,12 @@
-import React, { ComponentProps, ElementType, ReactNode, useEffect } from 'react'
+import React, { ComponentProps, ElementType, ReactNode } from 'react'
 
 import * as S from './styles'
-import { Icon } from '../Icon/Icon'
+import { CircleNotch } from 'phosphor-react'
 
 export type ButtonProps = ComponentProps<typeof S.Button> & {
   children: ReactNode
-  iconLeft?: string
-  iconRight?: string
+  iconLeft?: ReactNode
+  iconRight?: ReactNode
   isLoading?: boolean
   disabled?: boolean
   as?: ElementType
@@ -20,56 +20,21 @@ export const Button: React.FC<ButtonProps> = ({
   size,
   ...rest
 }: ButtonProps) => {
-  const asSizeMap = {
-    small: 16,
-    medium: 20,
-    large: 24,
-  }[size as 'small' | 'medium' | 'large']
-
-  useEffect(() => {
-    const elementRipple: HTMLButtonElement | null =
-      document.querySelector('.animation-ripple')
-
-    if (elementRipple) {
-      elementRipple.onclick = ({ pageX, pageY }) => {
-        const x =
-          ((pageX - elementRipple.offsetLeft) * 100) / elementRipple.offsetWidth
-
-        const y =
-          ((pageY - elementRipple.offsetTop) * 100) / elementRipple.offsetHeight
-
-        const ripple = document.createElement('span')
-        const rippleCollor = elementRipple.dataset.ripple || '#212129'
-
-        ripple.classList.add('ripple-effect')
-        ripple.style.background = rippleCollor
-
-        elementRipple.appendChild(ripple)
-
-        ripple.style.left = x + '%'
-        ripple.style.top = y + '%'
-
-        setTimeout(() => {
-          ripple.remove()
-        }, 700)
-      }
-    }
-  }, [])
-
   return (
     <S.Button
-      data-ripple={
-        rest.variant === 'contained' ? '#FFF' : 'rgba(10, 143, 220, 0.08)'
-      }
-      className="animation-ripple"
+      {...rest}
       disabled={disabled}
       size={size}
       hasIcon={!!iconLeft || !!iconRight}
-      {...rest}
     >
-      {iconLeft && <Icon icon={iconLeft} size={asSizeMap} />}
+      {rest.isLoading && (
+        <S.WrappedLoading>
+          <CircleNotch size={24} />
+        </S.WrappedLoading>
+      )}
+      {iconLeft && iconLeft}
       {children}
-      {iconRight && <Icon icon={iconRight} size={asSizeMap} />}
+      {iconRight && iconRight}
     </S.Button>
   )
 }

@@ -26,17 +26,6 @@ export const Button = styled('button', {
 
   overflow: 'hidden',
 
-  '& span': {
-    position: 'absolute',
-    transform: 'translate(-50%, -50%)',
-    borderRadius: '50%',
-    width: '5px',
-    height: '5px',
-    pointerEvents: 'none',
-    zIndex: 5,
-    animation: `${scaleUp} 0.7s linear infinite`,
-  },
-
   variants: {
     variant: {
       contained: {
@@ -45,9 +34,6 @@ export const Button = styled('button', {
           '& path': {
             fill: '$white',
           },
-        },
-        '& .ripple-effect': {
-          background: '#fff',
         },
       },
       text: {
@@ -149,20 +135,44 @@ export const Button = styled('button', {
         },
       },
     },
+    isLoading: {
+      true: {
+        color: 'transparent !important',
+        '& svg': {
+          color: 'white !important',
+          '& path': {
+            fill: 'transparent',
+          },
+        },
+      },
+    },
   },
   compoundVariants: [
+    {
+      isLoading: 'true',
+      variant: 'contained',
+      css: {
+        color: 'transparent !important',
+        '& svg': {
+          color: 'white !important',
+          '& path': {
+            fill: 'transparent',
+          },
+        },
+      },
+    },
     {
       color: 'primary',
       variant: 'outlined',
       css: {
-        '& .ripple-effect': {
-          background: 'rgba(10, 143, 220, 0.08)',
-        },
         '& svg': {
           fill: '$primary-normal',
           '& path': {
             fill: '$primary-normal',
           },
+        },
+        '&:hover': {
+          background: 'rgba(10, 143, 220, 0.06) !important',
         },
         color: '$primary-normal',
         '&:not(:disabled):not(:active):hover': {
@@ -186,8 +196,8 @@ export const Button = styled('button', {
       color: 'secondary',
       variant: 'outlined',
       css: {
-        '& .ripple-effect': {
-          background: 'rgba(70, 111, 135, 0.08)',
+        '&:hover': {
+          background: 'rgba(70, 111, 135, 0.08) !important',
         },
         '& svg': {
           fill: '$secondary-normal',
@@ -211,9 +221,6 @@ export const Button = styled('button', {
       color: 'primary',
       variant: 'text',
       css: {
-        '& .ripple-effect': {
-          background: 'rgba(10, 143, 220, 0.08)',
-        },
         color: '$primary-normal',
         '& svg': {
           fill: '$primary-normal',
@@ -223,6 +230,7 @@ export const Button = styled('button', {
         },
         '&:not(:disabled):not(:active):hover': {
           color: '$primary-hover',
+          background: 'rgba(10, 143, 220, 0.06) !important',
           '& svg': {
             fill: '$primary-hover',
             '& path': {
@@ -243,7 +251,7 @@ export const Button = styled('button', {
       color: 'secondary',
       variant: 'text',
       css: {
-        '& .ripple-effect': {
+        '&:hover': {
           background: 'rgba(70, 111, 135, 0.08) !important',
         },
         '& svg': {
@@ -278,9 +286,6 @@ export const Button = styled('button', {
       color: 'danger',
       variant: 'text',
       css: {
-        '& .ripple-effect': {
-          background: 'rgba(204, 57, 46, 0.04)',
-        },
         '& svg': {
           fill: '$feedback-error-normal !important',
           '& path': {
@@ -288,6 +293,10 @@ export const Button = styled('button', {
           },
         },
         color: '$feedback-error-normal',
+
+        '&:hover': {
+          background: 'rgba(204, 57, 46, 0.08) !important',
+        },
         '&:not(:disabled):not(:active):hover': {
           color: '$feedback-error-hover',
           '& svg': {
@@ -306,9 +315,6 @@ export const Button = styled('button', {
       color: 'danger',
       variant: 'outlined',
       css: {
-        '& .ripple-effect': {
-          background: 'rgba(204, 57, 46, 0.04)',
-        },
         '& svg': {
           fill: '$feedback-error-normal !important',
           '& path': {
@@ -316,6 +322,11 @@ export const Button = styled('button', {
           },
         },
         color: '$feedback-error-normal',
+
+        '&:hover': {
+          background: 'rgba(204, 57, 46, 0.08) !important',
+        },
+
         '&:not(:disabled):not(:active):hover': {
           color: '$feedback-error-hover',
           '& svg': {
@@ -337,9 +348,6 @@ export const Button = styled('button', {
       color: 'success',
       variant: 'outlined',
       css: {
-        '& .ripple-effect': {
-          background: 'rgba(46, 204, 86, 0.04)',
-        },
         '& svg': {
           fill: '$feedback-success-normal',
           '& path': {
@@ -371,9 +379,6 @@ export const Button = styled('button', {
       color: 'success',
       variant: 'text',
       css: {
-        '& .ripple-effect': {
-          background: 'rgba(46, 204, 86, 0.04)',
-        },
         color: '$feedback-success-normal',
         '& svg': {
           fill: '$feedback-success-normal',
@@ -389,10 +394,141 @@ export const Button = styled('button', {
         },
       },
     },
+    {
+      isLoading: 'true',
+      variant: 'outlined',
+      color: 'primary',
+      css: {
+        '& svg': {
+          color: '$primary-normal !important',
+          '& path': {
+            fill: 'transparent !important',
+          },
+        },
+      },
+    },
+    {
+      isLoading: 'true',
+      variant: 'outlined',
+      color: 'secondary',
+      css: {
+        '& svg': {
+          color: '$secondary-normal !important',
+          '& path': {
+            fill: 'transparent !important',
+          },
+        },
+      },
+    },
+    {
+      isLoading: 'true',
+      variant: 'outlined',
+      color: 'danger',
+      css: {
+        '& svg': {
+          color: '$feedback-error-normal !important',
+          '& path': {
+            fill: 'transparent !important',
+          },
+        },
+      },
+    },
+    {
+      isLoading: 'true',
+      variant: 'outlined',
+      color: 'success',
+      css: {
+        '& svg': {
+          color: '$feedback-success-normal !important',
+          '& path': {
+            fill: 'transparent !important',
+          },
+        },
+      },
+    },
+    {
+      isLoading: 'true',
+      variant: 'outlined',
+      color: 'success',
+      css: {
+        '& svg': {
+          color: '$feedback-success-normal !important',
+          '& path': {
+            fill: 'transparent !important',
+          },
+        },
+      },
+    },
+    {
+      variant: 'text',
+      color: 'danger',
+      css: {
+        color: 'transparent !important',
+        '& svg': {
+          color: '$feedback-error-normal !important',
+          '& path': {
+            fill: 'transparent !important',
+          },
+        },
+      },
+    },
+    {
+      variant: 'text',
+      color: 'success',
+      css: {
+        color: 'transparent !important',
+        '& svg': {
+          color: '$feedback-success-normal !important',
+          '& path': {
+            fill: 'transparent !important',
+          },
+        },
+      },
+    },
+    {
+      variant: 'text',
+      color: 'secondary',
+      css: {
+        color: 'transparent !important',
+        '& svg': {
+          color: '$secondary-normal !important',
+          '& path': {
+            fill: 'transparent !important',
+          },
+        },
+      },
+    },
+    {
+      variant: 'text',
+      color: 'primary',
+      css: {
+        color: 'transparent !important',
+        '& svg': {
+          color: '$primary-normal !important',
+          '& path': {
+            fill: 'transparent !important',
+          },
+        },
+      },
+    },
   ],
   defaultVariants: {
     size: 'medium',
     variant: 'contained',
     color: 'primary',
   },
+})
+
+const spin = keyframes({
+  '0%': { transform: 'rotate(0deg)' },
+  '100%': { transform: 'rotate(360deg)' },
+})
+
+export const WrappedLoading = styled('span', {
+  position: 'absolute',
+  display: 'flex',
+
+  animation: `${spin} 1s linear infinite`,
+
+  height: 'fit-content',
 })

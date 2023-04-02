@@ -11,7 +11,7 @@ import {
 } from '@ionext-ui/tokens'
 
 import { createStitches, defaultThemeMap } from '@stitches/react'
-
+export type { CSS } from '@stitches/react'
 export const { styled, css, globalCss, keyframes, getCssText, theme, config } =
   createStitches({
     themeMap: {

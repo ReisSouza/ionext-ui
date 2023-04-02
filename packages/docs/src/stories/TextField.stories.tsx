@@ -12,6 +12,8 @@ export default {
     label: 'Email',
     placeholder: 'user@user.com',
     size: 'medium',
+    type: 'email',
+    hint: 'error',
   },
 
   argTypes: {

@@ -125,6 +125,7 @@ export const Input = styled('input', {
   '&:disabled': {
     cursor: 'not-allowed',
   },
+  '-webkit-box-shadow': '0 0 0px 1000px #FFF inset',
 
   '&::placeholder': {
     color: '$border',

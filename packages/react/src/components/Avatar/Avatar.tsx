@@ -23,13 +23,7 @@ export const Avatar: React.FC<AvatarProps> = ({
     }`.toUpperCase()
   }
   return (
-    <S.ContainerAvatar
-      data-ripple="#FFF"
-      className="animation-ripple"
-      hasImage={!!src}
-      size={size}
-      variants={variants}
-    >
+    <S.ContainerAvatar hasImage={!!src} size={size} variants={variants}>
       <S.ImageAvatar src={src} alt={`Foto do usuário ${fallbackName}`} />
       <S.fallbackAvatar delayMs={600}>
         {getInitials(fallbackName || '')}

@@ -1,5 +1,6 @@
 import { ComponentProps } from 'react'
-import { Icon } from '../Icon/Icon'
+import { Check } from 'phosphor-react'
+
 import { CheckboxContainer, CheckboxIndicator } from './styles'
 
 export interface CheckboxProps
@@ -10,7 +11,7 @@ export function Checkbox(props: CheckboxProps) {
     <CheckboxContainer {...props}>
       <CheckboxIndicator asChild>
         <span>
-          <Icon icon="Check" size={16} color="$white" />
+          <Check size={32} />
         </span>
       </CheckboxIndicator>
     </CheckboxContainer>
