@@ -1,5 +1,35 @@
 # @ionext-ui/react
 
+## 3.1.1
+
+### Patch Changes
+
+- > ### Features
+
+  1. Created component Dialog with default
+
+  | Properties   | Type           | Default |
+  | ------------ | -------------- | ------- |
+  | open         | boolean        | ---     |
+  | onChangeOpen | ( ) => void    | ---     |
+  | defaultOpen  | boolean        | ---     |
+  | trigger      | ReactNode      | ---     |
+  | content      | ReactNode      | ---     |
+  | title        | string         | ---     |
+  | description  | string         | ---     |
+  | footer       | JSX.Element[ ] | ---     |
+  | cssOverlay   | CSS            | ---     |
+  | cssContent   | CSS            | ---     |
+  | cssFooter    | CSS            | ---     |
+
+  ***
+
+  > ### Refactor
+
+  1. Adjustment component TextField add props for controle htmlFor
+
+  ***
+
 ## 3.1.0
 
 ### Minor Changes

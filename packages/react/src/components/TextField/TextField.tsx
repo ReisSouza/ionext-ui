@@ -14,6 +14,7 @@ export type TextFieldProps = Omit<ComponentProps<typeof S.Input>, 'size'> &
     size?: 'small' | 'medium' | 'large'
     status?: 'default' | 'error' | 'warning' | 'success' | 'info'
     hasIconHint?: boolean
+    htmlFor?: string
   }
 
 export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
@@ -26,6 +27,7 @@ export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
       hint,
       hasIconHint,
       variant,
+      htmlFor,
       status,
       ...props
     }: TextFieldProps,
@@ -35,13 +37,17 @@ export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
     return (
       <S.ContainedTextField>
         {label && (
-          <S.Label disabled={props.disabled} size={size} htmlFor={id}>
+          <S.Label
+            disabled={props.disabled}
+            size={size}
+            htmlFor={htmlFor || id}
+          >
             {label}
           </S.Label>
         )}
         <S.WrappedInput variant={variant} size={size}>
           {iconLeft && iconLeft}
-          <S.Input size={size} id={id} ref={ref} {...props} />
+          <S.Input size={size} id={htmlFor || id} ref={ref} {...props} />
           {iconRight && iconRight}
         </S.WrappedInput>
         {hint && (

@@ -7,7 +7,6 @@ export const BoxRoot = styled('div', {
 
   borderStyle: 'solid',
   borderWidth: 'thin',
-  borderColor: '$border',
 
   variants: {
     variant: {
@@ -15,12 +14,35 @@ export const BoxRoot = styled('div', {
         background: '$white',
       },
       secondary: {
-        backgroundColor: '$background',
+        background: '$background !important',
+      },
+    },
+    hasBorder: {
+      true: {
+        borderColor: '$border',
       },
     },
   },
 
+  compoundVariants: [
+    {
+      hasBorder: false,
+      variant: 'primary',
+      css: {
+        borderColor: '$white',
+      },
+    },
+    {
+      hasBorder: false,
+      variant: 'secondary',
+      css: {
+        borderColor: '$background',
+      },
+    },
+  ],
+
   defaultVariants: {
-    variant: 'primary',
+    variant: 'secondary',
+    hasBorder: true,
   },
 })
