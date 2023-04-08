@@ -18,6 +18,10 @@ export const WrappedInput = styled('div', {
 
   display: 'flex',
   gap: '$2',
+  '& input:autofill': {
+    '-webkit-transition-delay': '9999s',
+    transitionDelay: '9999s',
+  },
 
   '& svg': {
     fill: '$secondary-light-active',
@@ -109,6 +113,15 @@ export const Input = styled('input', {
     '&::placeholder': {
       color: '$secondary-light-active',
     },
+  },
+  '-webkit-autofil': {
+    color: 'red',
+    border: '2px solid red',
+  },
+
+  '&:autofil': {
+    color: 'red',
+    border: '2px solid red',
   },
 
   variants: {

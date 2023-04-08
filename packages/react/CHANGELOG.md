@@ -1,5 +1,11 @@
 # @ionext-ui/react
 
+## 4.1.0
+
+### Minor Changes
+
+- adjustement component text field with auto fil
+
 ## 4.0.0
 
 ### Major Changes

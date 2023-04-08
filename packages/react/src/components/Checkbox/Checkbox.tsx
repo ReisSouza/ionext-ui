@@ -11,7 +11,7 @@ export function Checkbox(props: CheckboxProps) {
     <CheckboxContainer {...props}>
       <CheckboxIndicator asChild>
         <span>
-          <Check size={32} />
+          <Check size={16} />
         </span>
       </CheckboxIndicator>
     </CheckboxContainer>
