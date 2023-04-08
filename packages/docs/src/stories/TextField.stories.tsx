@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Box, TextField, TextFieldProps } from '@ionext-ui/react'
-import { iconList } from 'icomoon-react'
-import iconSet from '../../src/assets/icons.json'
 
-const icons = iconList(iconSet)
+import { MagnifyingGlass } from '@phosphor-icons/react'
 
 export default {
   title: 'Form/Text Field',
@@ -13,7 +11,6 @@ export default {
     placeholder: 'user@user.com',
     size: 'medium',
     type: 'email',
-    hint: 'error',
   },
 
   argTypes: {
@@ -24,15 +21,13 @@ export default {
       },
     },
     iconLeft: {
-      options: icons,
       control: {
-        type: 'select',
+        type: 'string',
       },
     },
     iconRight: {
-      options: icons,
       control: {
-        type: 'select',
+        type: 'string',
       },
     },
   },
@@ -40,6 +35,7 @@ export default {
     (Story) => {
       return (
         <Box
+          variant="primary"
           as="label"
           css={{ display: 'flex', flexDirection: 'column', gap: '$2' }}
         >
@@ -62,9 +58,17 @@ export const Disabled: StoryObj<TextFieldProps> = {
   },
 }
 
+export const Error: StoryObj<TextFieldProps> = {
+  args: {
+    placeholder: 'With error',
+    hint: 'error',
+  },
+}
+
 export const WithIconLeft: StoryObj<TextFieldProps> = {
   args: {
-    placeholder: 'Adicionar arquivo',
-    iconLeft: 'files',
+    placeholder: 'Pesquise pelo nome ou cpf',
+    label: 'Pesquisar',
+    iconLeft: <MagnifyingGlass size={20} />,
   },
 }

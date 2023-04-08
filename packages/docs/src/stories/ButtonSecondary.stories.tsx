@@ -1,10 +1,7 @@
 import { Button, ButtonProps } from '@ionext-ui/react'
+import { Plus, SignIn } from '@phosphor-icons/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { iconList } from 'icomoon-react'
-import iconSet from '../../src/assets/icons.json'
-
-const icons = iconList(iconSet)
 export default {
   title: 'Buttons/Secondary',
   component: Button,
@@ -36,15 +33,13 @@ export default {
     },
     argTypes: {
       iconLeft: {
-        options: icons,
         control: {
-          type: 'select',
+          type: 'string',
         },
       },
       iconRight: {
-        options: icons,
         control: {
-          type: 'select',
+          type: 'string',
         },
       },
     },
@@ -84,19 +79,19 @@ export const Large: StoryObj<ButtonProps> = {
 
 export const WithIconLeft: StoryObj<ButtonProps> = {
   args: {
-    iconLeft: 'files',
+    iconLeft: <Plus size={20} />,
   },
 }
 
 export const WithIconRight: StoryObj<ButtonProps> = {
   args: {
-    iconRight: 'files',
+    iconRight: <SignIn size={20} />,
   },
 }
 
 export const WithIcons: StoryObj<ButtonProps> = {
   args: {
-    iconLeft: 'files',
-    iconRight: 'files',
+    iconLeft: <Plus size={20} />,
+    iconRight: <Plus size={20} />,
   },
 }

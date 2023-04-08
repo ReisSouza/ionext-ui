@@ -399,6 +399,7 @@ export const Button = styled('button', {
       variant: 'outlined',
       color: 'primary',
       css: {
+        borderColor: '$primary-normal',
         '& svg': {
           color: '$primary-normal !important',
           '& path': {
@@ -412,6 +413,7 @@ export const Button = styled('button', {
       variant: 'outlined',
       color: 'secondary',
       css: {
+        borderColor: '$secondary-normal',
         '& svg': {
           color: '$secondary-normal !important',
           '& path': {
@@ -425,6 +427,7 @@ export const Button = styled('button', {
       variant: 'outlined',
       color: 'danger',
       css: {
+        borderColor: '$feedback-error-normal',
         '& svg': {
           color: '$feedback-error-normal !important',
           '& path': {
@@ -438,19 +441,7 @@ export const Button = styled('button', {
       variant: 'outlined',
       color: 'success',
       css: {
-        '& svg': {
-          color: '$feedback-success-normal !important',
-          '& path': {
-            fill: 'transparent !important',
-          },
-        },
-      },
-    },
-    {
-      isLoading: 'true',
-      variant: 'outlined',
-      color: 'success',
-      css: {
+        borderColor: '$feedback-success-normal',
         '& svg': {
           color: '$feedback-success-normal !important',
           '& path': {
@@ -463,7 +454,6 @@ export const Button = styled('button', {
       variant: 'text',
       color: 'danger',
       css: {
-        color: 'transparent !important',
         '& svg': {
           color: '$feedback-error-normal !important',
           '& path': {
@@ -476,7 +466,6 @@ export const Button = styled('button', {
       variant: 'text',
       color: 'success',
       css: {
-        color: 'transparent !important',
         '& svg': {
           color: '$feedback-success-normal !important',
           '& path': {
@@ -489,7 +478,6 @@ export const Button = styled('button', {
       variant: 'text',
       color: 'secondary',
       css: {
-        color: 'transparent !important',
         '& svg': {
           color: '$secondary-normal !important',
           '& path': {
@@ -502,7 +490,6 @@ export const Button = styled('button', {
       variant: 'text',
       color: 'primary',
       css: {
-        color: 'transparent !important',
         '& svg': {
           color: '$primary-normal !important',
           '& path': {

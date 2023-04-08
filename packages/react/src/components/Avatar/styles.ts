@@ -21,6 +21,7 @@ export const ContainerAvatar = styled(AvatarPrimitive.Root, {
   textAlign: 'center',
   fontWeight: '500',
 
+  //
   '& .ripple-effect': {
     position: 'absolute',
     transform: 'translate(-50%, -50%)',

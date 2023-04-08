@@ -31,6 +31,7 @@
     "@ionext-ui/react": "*",
     "@ionext-ui/tokens": "*",
     "@ionext-ui/ts-config": "*",
+    "@phosphor-icons/react": "^2.0.8",
     "@storybook/addon-a11y": "^6.5.16",
     "@storybook/addon-backgrounds": "^6.5.16",
     "@storybook/addon-docs": "^6.5.16",

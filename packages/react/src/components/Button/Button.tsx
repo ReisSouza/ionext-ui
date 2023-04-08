@@ -1,6 +1,6 @@
 import React, { ComponentProps, ElementType, ReactNode } from 'react'
 
-import * as S from './styles'
+import * as S from "./styles" 
 import { CircleNotch } from 'phosphor-react'
 
 export type ButtonProps = ComponentProps<typeof S.Button> & {
@@ -10,7 +10,7 @@ export type ButtonProps = ComponentProps<typeof S.Button> & {
   isLoading?: boolean
   disabled?: boolean
   as?: ElementType
-}
+}  
 
 export const Button: React.FC<ButtonProps> = ({
   children,

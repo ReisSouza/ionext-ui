@@ -1,5 +1,11 @@
 # @ionext-ui/react
 
+## 4.0.0
+
+### Major Changes
+
+- adjustements geral
+
 ## 3.1.0
 
 ### Minor Changes
