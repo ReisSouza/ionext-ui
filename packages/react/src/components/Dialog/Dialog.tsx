@@ -5,6 +5,8 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import * as S from './styles'
 import { CSS } from '@/types/css'
+import { Heading } from '../Heading/Heading'
+import { Text } from '../Text/Text'
 
 type DialogCloseProps = DialogPrimitive.DialogCloseProps
 
@@ -42,8 +44,14 @@ export const Dialog: React.FC<DialogProps> = ({
       <DialogPrimitive.Portal>
         <S.DialogOverlay css={cssOverlay} />
         <S.DialogContent css={cssContent}>
-          <S.DialogTitle>{title}</S.DialogTitle>
-          <S.DialogDescription>{description}</S.DialogDescription>
+          <S.DialogTitle asChild>
+            <Heading color="secondary" size="sm">
+              {title}
+            </Heading>
+          </S.DialogTitle>
+          <S.DialogDescription>
+            <Text color="secondary">{description}</Text>
+          </S.DialogDescription>
           {content}
           <S.Flex css={cssFooter}>
             {footer.map((itemFooter) => {
@@ -52,7 +60,7 @@ export const Dialog: React.FC<DialogProps> = ({
           </S.Flex>
           <DialogPrimitive.Close asChild>
             <S.IconButton aria-label="Close">
-              <X size={32} />
+              <X size={16} />
             </S.IconButton>
           </DialogPrimitive.Close>
         </S.DialogContent>

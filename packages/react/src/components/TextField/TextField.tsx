@@ -8,13 +8,15 @@ export type TextFieldProps = Omit<ComponentProps<typeof S.Input>, 'size'> &
   VariantProps<typeof S.WrappedInput> & {
     hint?: string
     label?: string
+    htmlFor?: string
     iconLeft?: ReactNode
+    isRequired?: boolean
     iconRight?: ReactNode
+    hasIconHint?: boolean
+    complementLabel?: string
     onPressIcon?: () => void
     size?: 'small' | 'medium' | 'large'
     status?: 'default' | 'error' | 'warning' | 'success' | 'info'
-    hasIconHint?: boolean
-    htmlFor?: string
   }
 
 export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
@@ -26,6 +28,8 @@ export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
       label,
       hint,
       hasIconHint,
+      complementLabel,
+      isRequired = false,
       htmlFor,
       status,
       ...props
@@ -41,7 +45,8 @@ export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
             size={size}
             htmlFor={htmlFor || id}
           >
-            {label}
+            {label} <span>{complementLabel}</span>{' '}
+            {isRequired && <span className="isRequired">*</span>}
           </S.Label>
         )}
         <S.WrappedInput size={size}>

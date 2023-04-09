@@ -64,8 +64,19 @@ export const IconButton = styled('button', {
   top: 10,
   right: 10,
 
-  '&:hover': { backgroundColor: '$primary-light-hover' },
-  '&:focus': { boxShadow: `0 0 0 2px $primary-light-active}` },
+  transition: 'all 250ms ease-in-out',
+
+  '&:hover': {
+    backgroundColor: '$primary-light-hover',
+    color: '$secondary-hover',
+    transition: 'all 250ms ease-in-out',
+  },
+  '&:focus': {
+    boxShadow: `0 0 0 2px $primary-light-active}`,
+    backgroundColor: '$primary-light-hover',
+    color: '$secondary-active',
+    transition: 'all 250ms ease-in-out',
+  },
 })
 
 export const Flex = styled('div', {

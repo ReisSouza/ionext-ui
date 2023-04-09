@@ -15,6 +15,18 @@ export default {
         type: 'inline-radio',
       },
     },
+    color: {
+      options: ['text', 'primary', 'secondary', 'warning', 'danger', 'success'],
+      control: {
+        type: 'inline-radio',
+      },
+    },
+    align: {
+      options: ['left', 'right', 'center'],
+      control: {
+        type: 'inline-radio',
+      },
+    },
   },
 } as Meta<HeadingProps>
 

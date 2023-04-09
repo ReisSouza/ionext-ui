@@ -11,6 +11,7 @@ export default {
     variant: 'contained',
     color: 'danger',
     isLoading: false,
+    disabled: false,
   },
   argTypes: {
     size: {

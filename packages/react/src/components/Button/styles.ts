@@ -26,6 +26,22 @@ export const Button = styled('button', {
 
   overflow: 'hidden',
 
+  '&:disabled': {
+    background: '$border !important',
+    color: '$secondary-light-active',
+    cursor: 'not-allowed',
+    borderColor: '$border !important',
+
+    '&:hover': {
+      background: '$border !important',
+      color: '$secondary-light-active !important',
+    },
+    '&:active': {
+      background: '$border !important',
+      color: '$secondary-light-active !important',
+    },
+  },
+
   variants: {
     variant: {
       contained: {

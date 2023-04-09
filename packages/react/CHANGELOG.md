@@ -1,5 +1,11 @@
 # @ionext-ui/react
 
+## 4.2.0
+
+### Minor Changes
+
+- refactor
+
 ## 4.1.0
 
 ### Minor Changes

@@ -11,6 +11,7 @@ export default {
     variant: 'contained',
     color: 'secondary',
     isLoading: false,
+    disabled: false,
   },
   argTypes: {
     size: {

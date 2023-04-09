@@ -11,6 +11,7 @@ export default {
     variant: 'contained',
     color: 'primary',
     isLoading: false,
+    disabled: false,
   },
   argTypes: {
     onClick: () => console.log('Clicked on button'),

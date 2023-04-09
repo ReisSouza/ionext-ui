@@ -14,4 +14,14 @@ export default {
   argTypes: {},
 } as Meta<BoxProps>
 
-export const Primary: StoryObj<BoxProps> = {}
+export const Primary: StoryObj<BoxProps> = {
+  args: {
+    variant: 'primary',
+  },
+}
+
+export const Secondary: StoryObj<BoxProps> = {
+  args: {
+    variant: 'secondary',
+  },
+}

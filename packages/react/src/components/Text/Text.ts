@@ -5,8 +5,6 @@ export const Text = styled('p', {
   fontFamily: '$default',
   lineHeight: '$base',
   margin: 0,
-  // color: '$white',
-
   variants: {
     size: {
       xxs: { fontSize: '$xxs' },
@@ -23,8 +21,38 @@ export const Text = styled('p', {
       '8xl': { fontSize: '$8xl' },
       '9xl': { fontSize: '$9xl' },
     },
+    align: {
+      left: {
+        textAlign: 'left',
+      },
+      right: {
+        textAlign: 'right',
+      },
+      center: {
+        textAlign: 'center',
+      },
+    },
+    color: {
+      text: {
+        color: '$text',
+      },
+      primary: {
+        color: '$primary-normal',
+      },
+      secondary: {
+        color: '$secondary-normal',
+      },
+      danger: {
+        color: '$feedback-error-normal',
+      },
+      success: {
+        color: '$feedback-success-normal',
+      },
+      warning: {
+        color: '$feedback-help-normal',
+      },
+    },
   },
-
   defaultVariants: {
     size: 'md',
   },

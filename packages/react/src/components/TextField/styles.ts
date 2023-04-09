@@ -144,10 +144,20 @@ export const Input = styled('input', {
 
 export const Hint = styled('span', {
   alignSelf: 'end',
+  color: '$feedback-error-normal',
 })
 
 export const Label = styled(LabelPrimitive.Root, {
   color: '$secondary-normal',
+
+  '& > span': {
+    fontSize: '$sm',
+    color: '$secondary-light-active',
+  },
+
+  '& .isRequired': {
+    color: '$feedback-error-normal',
+  },
   variants: {
     size: {
       small: {

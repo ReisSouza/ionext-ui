@@ -52,23 +52,47 @@ export const Primary: StoryObj<TextFieldProps> = {
   },
 }
 
-export const Disabled: StoryObj<TextFieldProps> = {
-  args: {
-    disabled: true,
-  },
-}
-
-export const Error: StoryObj<TextFieldProps> = {
-  args: {
-    placeholder: 'With error',
-    hint: 'error',
-  },
-}
-
 export const WithIconLeft: StoryObj<TextFieldProps> = {
   args: {
     placeholder: 'Pesquise pelo nome ou cpf',
     label: 'Pesquisar',
     iconLeft: <MagnifyingGlass size={20} />,
+  },
+}
+
+export const WithIconRight: StoryObj<TextFieldProps> = {
+  args: {
+    label: 'Pesquisar',
+    placeholder: 'Pesquise pelo nome ou cpf',
+    iconRight: <MagnifyingGlass size={20} />,
+  },
+}
+
+export const isRequired: StoryObj<TextFieldProps> = {
+  args: {
+    label: 'Email',
+    isRequired: true,
+    placeholder: 'user@user.com',
+  },
+}
+export const complementLabel: StoryObj<TextFieldProps> = {
+  args: {
+    isRequired: true,
+    label: 'Senha',
+    placeholder: 'Digite sua senha',
+    complementLabel: 'Senha deve ter 6 caracteres',
+  },
+}
+
+export const Error: StoryObj<TextFieldProps> = {
+  args: {
+    hint: 'error',
+    placeholder: 'With error',
+  },
+}
+
+export const Disabled: StoryObj<TextFieldProps> = {
+  args: {
+    disabled: true,
   },
 }
