@@ -32,18 +32,6 @@ export default {
         type: 'inline-radio',
       },
     },
-    argTypes: {
-      iconLeft: {
-        control: {
-          type: 'string',
-        },
-      },
-      iconRight: {
-        control: {
-          type: 'string',
-        },
-      },
-    },
   },
 } as Meta<ButtonProps>
 

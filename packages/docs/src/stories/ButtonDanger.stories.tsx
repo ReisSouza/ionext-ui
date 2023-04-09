@@ -32,16 +32,9 @@ export default {
         type: 'inline-radio',
       },
     },
-    iconLeft: {
-      options: 'string',
+    fullWidth: {
       control: {
-        type: 'select',
-      },
-    },
-    iconRight: {
-      options: 'string',
-      control: {
-        type: 'select',
+        type: 'boolean',
       },
     },
   },

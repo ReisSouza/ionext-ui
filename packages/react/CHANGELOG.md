@@ -1,5 +1,11 @@
 # @ionext-ui/react
 
+## 4.4.0
+
+### Minor Changes
+
+- updated styled button
+
 ## 4.3.0
 
 ### Minor Changes

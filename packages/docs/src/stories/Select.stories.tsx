@@ -42,21 +42,6 @@ export default {
   },
 
   argTypes: {
-    options: {
-      options: [
-        {
-          label: 'string',
-          value: 'string',
-          labelGroup: 'string',
-          group: [
-            {
-              label: 'string',
-              value: 'string',
-            },
-          ],
-        },
-      ],
-    },
     size: {
       options: ['small', 'medium', 'large'],
       control: {

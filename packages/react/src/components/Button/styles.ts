@@ -25,20 +25,27 @@ export const Button = styled('button', {
   fontFamily: '$default',
 
   overflow: 'hidden',
+  borderRadius: '$1',
 
   '&:disabled': {
     background: '$border !important',
-    color: '$secondary-light-active',
+    color: '$white',
     cursor: 'not-allowed',
     borderColor: '$border !important',
 
     '&:hover': {
       background: '$border !important',
-      color: '$secondary-light-active !important',
+      color: '$white !important',
     },
     '&:active': {
       background: '$border !important',
-      color: '$secondary-light-active !important',
+      color: '$white !important',
+    },
+    '& svg': {
+      color: 'white !important',
+      '& path': {
+        fill: 'white',
+      },
     },
   },
 
@@ -77,20 +84,16 @@ export const Button = styled('button', {
         lineHeight: '$base',
 
         fontSize: '$3',
-
-        borderRadius: '$1',
       },
       medium: {
         padding: '$3 $6',
         height: '$10',
-        borderRadius: '$1',
 
         fontSize: '$4',
       },
       large: {
         padding: '$4 $8',
         height: '$12',
-        borderRadius: '$2',
 
         fontSize: '$5',
       },
@@ -160,6 +163,12 @@ export const Button = styled('button', {
             fill: 'transparent',
           },
         },
+      },
+    },
+    fullWidth: {
+      true: {
+        width: '100%',
+        minWidth: '100%',
       },
     },
   },
