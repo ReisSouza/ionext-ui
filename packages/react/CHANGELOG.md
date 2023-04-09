@@ -1,5 +1,11 @@
 # @ionext-ui/react
 
+## 4.3.0
+
+### Minor Changes
+
+- adjstument ts
+
 ## 4.2.0
 
 ### Minor Changes
