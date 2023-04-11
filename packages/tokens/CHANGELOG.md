@@ -1,5 +1,11 @@
 # @ionext-ui/tokens
 
+## 1.2.2
+
+### Patch Changes
+
+- adjustment eslint remove use rockset
+
 ## 1.2.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @ionext-ui/react
 
+## 4.4.1
+
+### Patch Changes
+
+- adjustment eslint remove use rockset
+
 ## 4.4.0
 
 ### Minor Changes
