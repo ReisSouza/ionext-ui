@@ -1,5 +1,77 @@
 # @ionext-ui/react
 
+## 4.5.0
+
+### Minor Changes
+
+- ## Feature
+
+  ### Created component TextArea, available for test (commit)[https://github.com/ReisSouza/ionext-ui/commit/d24cff46b9485ffc27de60cfb707105b20f585db]
+
+  ### Development table in progress (commit)[https://github.com/ReisSouza/ionext-ui/commit/7ef24c801125fa73728f049f773994ea527eb8bb]
+
+  ## Refactor
+
+  ### Button
+
+  1.  Created new variant icon
+  2.  Adjustment variant loading and disabled
+
+  Commits:
+  ()[https://github.com/ReisSouza/ionext-ui/commit/88a49763710b4ccd728a5c6effd724d142328e3b]
+
+  ()[https://github.com/ReisSouza/ionext-ui/commit/f58a334b6d140304a2bcd38bb5390c52b2e7dd8d]
+
+  ()[https://github.com/ReisSouza/ionext-ui/commit/4b2d79a444048258ae27ea4eb6544f11dcfb5e7a]
+
+  ### Checkbox
+
+  Commits:
+  ()[https://github.com/ReisSouza/ionext-ui/commit/b4d26485da658a59a0f1ce852df0aebab0822435]
+
+  ## Others
+
+  Config snippets for application
+
+  ```
+  rfsc =>
+
+  import React from 'react'
+
+  import * as S from './styles'
+
+  export type ComponentProps = {}
+
+  export const Component: React.FC<ComponentProps> = ({ ...rest }: AvatarProps) => {
+    return <S.Component></S.Component>
+  }
+
+
+  ```
+
+  ```
+  csc =>
+
+
+  import { styled } from '@/styles'
+
+  export const  Component = styled('', {
+
+  })
+
+  ```
+
+  ```
+  cscs =>
+
+
+
+  export const  Component = styled('', {
+
+  })
+
+  ```
+
 ## 4.4.1
 
 ### Patch Changes
