@@ -4,7 +4,7 @@ import * as S from './styles'
 import { CircleNotch } from 'phosphor-react'
 
 export type ButtonProps = ComponentProps<typeof S.Button> & {
-  children: ReactNode
+  children?: ReactNode
   iconLeft?: ReactNode
   iconRight?: ReactNode
   iconButton?: ReactNode
