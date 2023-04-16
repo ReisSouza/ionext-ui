@@ -7,6 +7,7 @@ export type ButtonProps = ComponentProps<typeof S.Button> & {
   children: ReactNode
   iconLeft?: ReactNode
   iconRight?: ReactNode
+  iconButton?: ReactNode
   isLoading?: boolean
   disabled?: boolean
   as?: ElementType
@@ -17,24 +18,29 @@ export const Button: React.FC<ButtonProps> = ({
   iconLeft,
   iconRight,
   disabled = false,
+  iconButton,
+  icon,
   size,
   ...rest
 }: ButtonProps) => {
   return (
     <S.Button
       {...rest}
+      isLoading={rest.isLoading && !disabled}
+      icon={!!iconButton}
       disabled={disabled}
       size={size}
       hasIcon={!!iconLeft || !!iconRight}
     >
-      {rest.isLoading && (
+      {rest.isLoading && !disabled && (
         <S.WrappedLoading>
           <CircleNotch size={24} />
         </S.WrappedLoading>
       )}
-      {iconLeft && iconLeft}
-      {children}
-      {iconRight && iconRight}
+      {iconButton && iconButton}
+      {iconLeft && !iconButton && iconLeft}
+      {!iconButton && children}
+      {iconRight && !iconButton && iconRight}
     </S.Button>
   )
 }

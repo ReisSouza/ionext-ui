@@ -3,13 +3,13 @@ import { Plus, SignIn } from '@phosphor-icons/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 export default {
-  title: 'Buttons/Secondary',
+  title: 'Buttons/Button',
   component: Button,
   args: {
     children: 'Enviar',
     size: 'medium',
     variant: 'contained',
-    color: 'secondary',
+    color: 'primary',
     isLoading: false,
     disabled: false,
   },
@@ -30,6 +30,11 @@ export default {
       options: ['contained', 'text', 'outlined'],
       control: {
         type: 'inline-radio',
+      },
+    },
+    fullWidth: {
+      control: {
+        type: 'boolean',
       },
     },
   },
@@ -82,5 +87,35 @@ export const WithIcons: StoryObj<ButtonProps> = {
   args: {
     iconLeft: <Plus size={20} />,
     iconRight: <Plus size={20} />,
+  },
+}
+
+export const IconButton: StoryObj<ButtonProps> = {
+  args: {
+    iconButton: <Plus size={20} />,
+  },
+}
+
+export const Danger: StoryObj<ButtonProps> = {
+  args: {
+    color: 'danger',
+  },
+}
+
+export const Success: StoryObj<ButtonProps> = {
+  args: {
+    color: 'success',
+  },
+}
+
+export const Primary: StoryObj<ButtonProps> = {
+  args: {
+    color: 'primary',
+  },
+}
+
+export const Secondary: StoryObj<ButtonProps> = {
+  args: {
+    color: 'secondary',
   },
 }
