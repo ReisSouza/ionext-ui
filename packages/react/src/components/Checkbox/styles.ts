@@ -26,6 +26,15 @@ export const CheckboxContainer = styled(Checkbox.Root, {
   '&:focus, &[data-state="checked"]': {
     border: '2px solid $primary-normal',
   },
+
+  variants: {
+    isSmall: {
+      true: {
+        width: '$4',
+        height: '$4',
+      },
+    },
+  },
 })
 
 const slideIn = keyframes({
@@ -50,12 +59,35 @@ export const CheckboxIndicator = styled(Checkbox.Indicator, {
   color: '$white',
   width: '$4',
   height: '$4',
+  position: 'relative',
 
   '&[data-state="checked"]': {
     animation: `${slideIn} 200ms ease-out`,
   },
+  '&[data-state="indeterminate"]': {
+    '&::before': {
+      content: `''`,
+      display: 'block',
+      background: '$primary-normal',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: '8px',
+      height: '2px',
+      borderRadius: 'inherit',
+    },
+  },
 
   '&[data-state="unchecked"]': {
     animation: `${slideOut} 200ms ease-out`,
+  },
+  variants: {
+    isSmall: {
+      true: {
+        width: '$3',
+        height: '$3',
+      },
+    },
   },
 })
