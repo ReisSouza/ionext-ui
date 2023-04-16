@@ -21,7 +21,7 @@ export const Button = styled('button', {
 
   flexDirection: 'row',
 
-  fontWeight: '$medium',
+  fontWeight: '$regular',
   fontFamily: '$default',
 
   overflow: 'hidden',
