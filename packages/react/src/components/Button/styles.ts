@@ -171,10 +171,13 @@ export const Button = styled('button', {
         minWidth: '100%',
       },
     },
+    icon: {
+      true: {},
+    },
   },
   compoundVariants: [
     {
-      isLoading: 'true',
+      isLoading: true,
       variant: 'contained',
       css: {
         color: 'transparent !important',
@@ -420,7 +423,7 @@ export const Button = styled('button', {
       },
     },
     {
-      isLoading: 'true',
+      isLoading: true,
       variant: 'outlined',
       color: 'primary',
       css: {
@@ -434,7 +437,7 @@ export const Button = styled('button', {
       },
     },
     {
-      isLoading: 'true',
+      isLoading: true,
       variant: 'outlined',
       color: 'secondary',
       css: {
@@ -448,7 +451,7 @@ export const Button = styled('button', {
       },
     },
     {
-      isLoading: 'true',
+      isLoading: true,
       variant: 'outlined',
       color: 'danger',
       css: {
@@ -462,7 +465,7 @@ export const Button = styled('button', {
       },
     },
     {
-      isLoading: 'true',
+      isLoading: true,
       variant: 'outlined',
       color: 'success',
       css: {
@@ -519,6 +522,103 @@ export const Button = styled('button', {
           color: '$primary-normal !important',
           '& path': {
             fill: 'transparent !important',
+          },
+        },
+      },
+    },
+    {
+      icon: true,
+      size: 'small',
+      css: {
+        width: '$8 !important',
+        minWidth: '$8 !important',
+        padding: '0px !important',
+      },
+    },
+    {
+      icon: true,
+      size: 'medium',
+      css: {
+        width: '$10 !important',
+        minWidth: '$10 !important',
+        padding: '0px !important',
+      },
+    },
+    {
+      icon: true,
+      size: 'large',
+      css: {
+        width: '$12 !important',
+        minWidth: '$12 !important',
+        padding: '0px !important',
+      },
+    },
+
+    {
+      icon: true,
+      variant: 'contained',
+      css: {
+        '& svg': {
+          fill: '$white !important',
+
+          '& path': {
+            fill: '$white !important',
+          },
+        },
+      },
+    },
+    {
+      variant: 'text',
+      icon: true,
+      color: 'danger',
+      css: {
+        '& svg': {
+          fill: '$feedback-error-normal !important',
+
+          '& path': {
+            fill: '$feedback-error-normal !important',
+          },
+        },
+      },
+    },
+    {
+      variant: 'text',
+      icon: true,
+      color: 'success',
+      css: {
+        '& svg': {
+          fill: '$feedback-success-normal !important',
+
+          '& path': {
+            fill: '$feedback-success-normal !important',
+          },
+        },
+      },
+    },
+    {
+      variant: 'text',
+      icon: true,
+      color: 'primary',
+      css: {
+        '& svg': {
+          fill: '$primary-normal !important',
+
+          '& path': {
+            fill: '$primary-normal !important',
+          },
+        },
+      },
+    },
+    {
+      variant: 'text',
+      icon: true,
+      color: 'secondary',
+      css: {
+        '& svg': {
+          fill: '$secondary-normal !important',
+
+          '& path': {
+            fill: '$secondary-normal !important',
           },
         },
       },
