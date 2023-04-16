@@ -1,0 +1,18 @@
+{
+	"React Function component Stitches": {
+		"prefix": "rfcs",
+		"body": [
+		  "import React from 'react'",
+		  "",
+		  "import * as S from './styles'",
+		  "",
+		  "export type ${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}Props = {}",
+		  "",
+		  "export const ${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}: React.FC<${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}Props> = ({ ...rest }: ${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}Props) => {",
+		  "  return <S.${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}Container></S.${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}Container>",
+		  "}",
+		  ""
+		],
+		"description": "React Function component Stitches"
+	  }
+}

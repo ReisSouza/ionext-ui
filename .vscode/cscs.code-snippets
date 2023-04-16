@@ -1,0 +1,13 @@
+{
+	"Create Stitches Component": {
+		"prefix": "cscs",
+		"body": [
+		  "",
+		  "export const  ${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}$1 = styled('$2', {",
+		  "  $0",
+		  "})",
+		  ""
+		],
+		"description": "Create Stitches Component does not import style"
+	  }
+}
