@@ -24,6 +24,7 @@ export const WrappedInput = styled('div', {
   },
 
   '& svg': {
+    color: '$secondary-normal',
     fill: '$secondary-light-active',
     '& path': {
       fill: '$secondary-light-active',
@@ -96,6 +97,14 @@ export const Input = styled('input', {
   width: '100%',
   height: '100%',
   fontWeight: '$medium',
+
+  '&[type="date"]::-webkit-calendar-picker-indicator': {
+    display: 'none',
+    '-webkit-appearance': 'none',
+    backgroundImage: 'none',
+  },
+
+  appearance: 'none',
 
   '&:focus': {
     outline: 0,
