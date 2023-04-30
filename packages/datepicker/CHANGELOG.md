@@ -1,5 +1,24 @@
 # @ionext-ui/react
 
+## 0.1.1
+
+### Patch Changes
+
+- updated
+- Updated dependencies
+  - @ionext-ui/react@4.6.1
+
+## 0.1.0
+
+### Minor Changes
+
+- updated
+
+### Patch Changes
+
+- Updated dependencies
+  - @ionext-ui/react@4.6.0
+
 ## 4.5.0
 
 ### Minor Changes

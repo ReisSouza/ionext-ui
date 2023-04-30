@@ -1,5 +1,17 @@
 # @ionext-ui/react
 
+## 4.6.1
+
+### Patch Changes
+
+- updated
+
+## 4.6.0
+
+### Minor Changes
+
+- updated
+
 ## 4.5.1
 
 ### Patch Changes
