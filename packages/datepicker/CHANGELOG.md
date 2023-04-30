@@ -1,11 +1,5 @@
 # @ionext-ui/react
 
-## 4.5.1
-
-### Patch Changes
-
-- udated styled text field
-
 ## 4.5.0
 
 ### Minor Changes
