@@ -1,2 +1,2 @@
-export { Calendar } from '@/components/Calendar/Calendar'
-export type { CalendarProps } from '@/components/Calendar/Calendar'
+export { Datepicker } from '@/components/Calendar/Calendar'
+export type { DatepickerProps } from '@/components/Calendar/Calendar'

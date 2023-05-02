@@ -1,13 +1,13 @@
-import { Calendar, CalendarProps } from '@ionext-ui/datepicker'
+import { Datepicker, DatepickerProps } from '@ionext-ui/datepicker'
 import type { Meta, StoryObj } from '@storybook/react'
 
 export default {
   title: 'Form/Datepicker',
-  component: Calendar,
+  component: Datepicker,
   args: {},
   argTypes: {},
-} as Meta<CalendarProps>
+} as Meta<DatepickerProps>
 
-export const Primary: StoryObj<CalendarProps> = {
+export const Primary: StoryObj<DatepickerProps> = {
   args: {},
 }

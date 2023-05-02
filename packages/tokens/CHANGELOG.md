@@ -1,5 +1,11 @@
 # @ionext-ui/tokens
 
+## 1.4.0
+
+### Minor Changes
+
+- upated
+
 ## 1.3.1
 
 ### Patch Changes
