@@ -15,6 +15,7 @@ export const CalendarContainer = styled('section', {
   gap: '$6',
   padding: '$4',
   marginTop: '$2',
+  overflow: 'hidden',
 
   borderRadius: '$2',
   position: 'absolute',
@@ -54,69 +55,4 @@ export const CalendarBody = styled('table', {
   fontFamily: '$default',
   borderSpacing: '0.25rem',
   tableLayout: 'fixed',
-})
-
-export const Input = styled('input', {
-  '&:focus': {
-    outline: 'none',
-  },
-
-  '&[type="date"]::-webkit-calendar-picker-indicator': {
-    display: 'none',
-    '-webkit-appearance': 'none',
-    backgroundImage: 'none',
-  },
-
-  appearance: 'none',
-  height: '$10',
-
-  padding: '$2 $4',
-  borderRadius: '$1',
-
-  fontSize: '$4',
-  width: '100%',
-  alignItems: 'center',
-  boxSizing: 'border-box',
-
-  borderWidth: 'thin',
-  borderStyle: 'solid',
-  borderColor: '$secondary-light-active',
-
-  display: 'flex',
-  gap: '$2',
-
-  '& input:autofill': {
-    '-webkit-transition-delay': '9999s',
-    transitionDelay: '9999s',
-  },
-
-  '& svg': {
-    fill: '$secondary-light-active',
-    '& path': {
-      fill: '$secondary-light-active',
-    },
-  },
-
-  '&:hover': {
-    borderColor: '$secondary-normal',
-    '& svg': {
-      fill: '$secondary-normal',
-      '& path': {
-        fill: '$secondary-normal',
-      },
-    },
-  },
-  '&:has(input:focus)': {
-    borderColor: '$secondary-hover',
-    '& svg': {
-      fill: '$secondary-hover',
-      '& path': {
-        fill: '$secondary-hover',
-      },
-    },
-  },
-  '&:has(input:disabled)': {
-    opacity: 0.5,
-    cursor: 'not-allowed',
-  },
 })

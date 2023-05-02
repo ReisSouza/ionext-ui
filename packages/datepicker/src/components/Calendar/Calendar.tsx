@@ -1,12 +1,15 @@
 import dayjs from 'dayjs'
 import { TextField } from '@ionext-ui/react'
 import { CalendarPlus } from 'phosphor-react'
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+
+import '@/utils/dayjs'
 
 import * as S from './styles'
 import { Tbody } from './modules/Tbody/Tbody'
 import { THead } from './modules/THead/THead'
 import { Header } from './modules/Header/Header'
+import { Years } from '../Years/Years'
 
 interface CalendarWeek {
   week: number
@@ -19,24 +22,28 @@ interface CalendarWeek {
 
 export type CalendarWeeks = CalendarWeek[]
 
-export interface CalendarProps {
+export interface DatepickerProps {
   selectedDate?: Date | null
   defaultValue?: Date | null
-  onDateSelected: (date: Date | null) => void
+  onChangeValue: (date: Date | null) => void
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>
   open?: boolean
   defaultOpen?: boolean
 }
 
-export const Calendar: React.FC<CalendarProps> = ({
+export const Datepicker: React.FC<DatepickerProps> = ({
   defaultValue,
   defaultOpen,
   open,
   setOpen,
-  onDateSelected,
-}: CalendarProps) => {
-  const [_open, _setOpen] = useState(defaultOpen || false)
-
+  onChangeValue = (v) => console.log({ date: v }),
+}: DatepickerProps) => {
+  const [_open, _setOpen] = useState<boolean>(defaultOpen || false)
+  const [openSelectYear, setOpenSelectYear] = useState<boolean>(false)
+  const [dateInvalid, setDateInvalid] = useState(false)
+  const [onKeyPressed, setOnKeyPressed] = useState<
+    'ArrowDown' | 'ArrowUp' | undefined
+  >(undefined)
   const [currentDate, setCurrentDate] = useState(() => {
     return dayjs().set('date', 1)
   })
@@ -104,25 +111,78 @@ export const Calendar: React.FC<CalendarProps> = ({
 
   const inputRef = useRef<HTMLInputElement>(null)
 
+  const useClickBody = useCallback(
+    (event: any) => {
+      if (!event.target.closest('.meu-elemento')) {
+        setOpen ? setOpen(false) : _setOpen(false)
+        setOpenSelectYear(false)
+      }
+    },
+    [setOpen],
+  )
+
   useEffect(() => {
-    document.addEventListener('click', handleClick)
+    document.addEventListener('click', useClickBody)
 
     return () => {
-      document.removeEventListener('click', handleClick)
+      document.removeEventListener('click', useClickBody)
     }
-  }, [])
-
-  function handleClick(event: any) {
-    if (!event.target.closest('.meu-elemento')) {
-      setOpen ? setOpen(false) : _setOpen(false)
-    }
-  }
+  }, [useClickBody])
 
   const handleDateSelected = (date: Date) => {
     setSelectedDate(date)
     setOpen ? setOpen(false) : _setOpen(false)
-    onDateSelected(date)
+    onChangeValue(date)
   }
+
+  const handleDateChange = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const key = event.key
+    const isArrowUp = key === 'ArrowUp'
+    const isArrowDown = key === 'ArrowDown'
+    if (dateInvalid) {
+      if (dateInvalid) {
+        if (isArrowUp) return setOnKeyPressed('ArrowUp')
+        if (isArrowDown) return setOnKeyPressed('ArrowDown')
+      }
+    }
+  }
+
+  const handleUpdatedArrowDown = () => {
+    const daysInMonth = dayjs(selectedDate).subtract(1, 'month').daysInMonth()
+
+    const newCurrentMonth = dayjs(selectedDate)
+      .subtract(1, 'month')
+      .get('month')
+    const newCurrentDate = dayjs(currentDate)
+      .set('date', daysInMonth)
+      .set('month', newCurrentMonth)
+      .toDate()
+    setCurrentDate(
+      dayjs(currentDate).set('date', 1).set('month', newCurrentMonth),
+    )
+    setSelectedDate(newCurrentDate)
+    onChangeValue(newCurrentDate)
+  }
+
+  const handleUpdatedArrowUp = () => {
+    const daysInMonth = dayjs(selectedDate).add(1, 'month').daysInMonth()
+    const newCurrentMonth = dayjs(selectedDate).add(1, 'month').get('month')
+    const newCurrentDate = dayjs(currentDate)
+      .set('date', daysInMonth)
+      .set('month', newCurrentMonth)
+      .toDate()
+    setCurrentDate(
+      dayjs(currentDate).set('date', 1).set('month', newCurrentMonth),
+    )
+    setSelectedDate(newCurrentDate)
+    onChangeValue(newCurrentDate)
+  }
+
+  useEffect(() => {
+    if (dateInvalid && onKeyPressed === 'ArrowDown')
+      return handleUpdatedArrowDown()
+    if (dateInvalid && onKeyPressed === 'ArrowUp') return handleUpdatedArrowUp()
+  }, [dateInvalid, onKeyPressed])
 
   return (
     <S.Container className="meu-elemento">
@@ -138,13 +198,44 @@ export const Calendar: React.FC<CalendarProps> = ({
         type="date"
         value={dayjs(selectedDate).format('YYYY-MM-DD')}
         onChange={(v) => {
-          setSelectedDate(dayjs(v.target.value).toDate())
-          console.log({ date: dayjs(v.target.value).toDate() })
+          const newDate = dayjs(v.target.value)
+          setDateInvalid(!newDate.isValid())
+          if (!newDate.isValid()) {
+            return setCurrentDate(dayjs().set('date', 1))
+          }
+          onChangeValue(newDate.toDate())
+          setSelectedDate(newDate.toDate())
+          setCurrentDate(newDate.set('date', 1))
         }}
+        onKeyDown={(e) => handleDateChange(e)}
         onFocus={() => (setOpen ? setOpen(true) : _setOpen(true))}
       />
+
       <S.CalendarContainer isOpen={open || _open}>
-        <Header currentDate={currentDate} setCurrentDate={setCurrentDate} />
+        <Years
+          isOpen={openSelectYear}
+          onYearsChange={(year) => {
+            const newDate = dayjs(selectedDate).year(Number(year)).toDate()
+            setCurrentDate((prevState) => prevState.year(Number(year)))
+            setSelectedDate(newDate)
+            onChangeValue(newDate)
+            setOpenSelectYear(false)
+          }}
+          open={openSelectYear}
+        />
+
+        <Header
+          onChangeMonth={(month) => {
+            const newDate = dayjs(selectedDate).set('month', month).toDate()
+            onChangeValue(newDate)
+            setSelectedDate(newDate)
+          }}
+          onSelectYear={() => {
+            setOpenSelectYear(true)
+          }}
+          currentDate={currentDate}
+          setCurrentDate={setCurrentDate}
+        />
         <S.CalendarBody>
           <THead />
           <Tbody

@@ -5,14 +5,27 @@ export const HeaderContainer = styled('header', {
   alignItems: 'center',
   justifyContent: 'space-between',
   color: '$secondary-normal',
+  marginBottom: '$2',
 })
 
 export const CalendarTitle = styled('div', {
   fontWeight: 'bold',
   textTransform: 'capitalize',
+  alignItems: 'center',
 
-  span: {
-    fontWeight: 'bolder',
+  display: 'flex',
+  gap: '$2',
+
+  button: {
+    all: 'unset',
+    display: 'flex',
+    gap: '$1',
+    padding: '$1 $2',
+    borderRadius: '$2',
+
+    '&:hover, :focus': {
+      background: '$background',
+    },
   },
 })
 
