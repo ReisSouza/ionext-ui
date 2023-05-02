@@ -1,5 +1,11 @@
 # @ionext-ui/react
 
+## 0.2.1
+
+### Patch Changes
+
+- updated datepicker
+
 ## 0.2.0
 
 ### Minor Changes

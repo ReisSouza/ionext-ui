@@ -23,9 +23,9 @@ interface CalendarWeek {
 export type CalendarWeeks = CalendarWeek[]
 
 export interface DatepickerProps {
-  selectedDate?: Date | null
-  defaultValue?: Date | null
-  onChangeValue: (date: Date | null) => void
+  defaultValue?: string | null
+  value?: string
+  onChangeValue: (date: string | null) => void
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>
   open?: boolean
   defaultOpen?: boolean
@@ -36,7 +36,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   defaultOpen,
   open,
   setOpen,
-  onChangeValue = (v) => console.log({ date: v }),
+  value,
+  onChangeValue,
 }: DatepickerProps) => {
   const [_open, _setOpen] = useState<boolean>(defaultOpen || false)
   const [openSelectYear, setOpenSelectYear] = useState<boolean>(false)
@@ -49,17 +50,17 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   })
 
   const [selectedDate, setSelectedDate] = useState<Date>(
-    defaultValue || new Date(),
+    dayjs(defaultValue).toDate() || new Date(),
   )
 
   const calendarWeeks = useMemo(() => {
     const daysInMonthArray = Array.from({
       length: currentDate.daysInMonth(),
     }).map((_, i) => {
-      return currentDate.set('date', i + 1) // Date is day
+      return currentDate.set('date', i + 1)
     })
 
-    const firstWeekDay = currentDate.get('day') // Day of week
+    const firstWeekDay = currentDate.get('day')
 
     const previousMonthFillArray = Array.from({
       length: firstWeekDay,
@@ -132,7 +133,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const handleDateSelected = (date: Date) => {
     setSelectedDate(date)
     setOpen ? setOpen(false) : _setOpen(false)
-    onChangeValue(date)
+    onChangeValue(dayjs(date).format('YYYY-MM-DD'))
   }
 
   const handleDateChange = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -161,7 +162,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       dayjs(currentDate).set('date', 1).set('month', newCurrentMonth),
     )
     setSelectedDate(newCurrentDate)
-    onChangeValue(newCurrentDate)
+    onChangeValue(dayjs(newCurrentDate).format('YYYY-MM-DD'))
   }
 
   const handleUpdatedArrowUp = () => {
@@ -175,7 +176,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       dayjs(currentDate).set('date', 1).set('month', newCurrentMonth),
     )
     setSelectedDate(newCurrentDate)
-    onChangeValue(newCurrentDate)
+    onChangeValue(dayjs(newCurrentDate).format('YYYY-MM-DD'))
   }
 
   useEffect(() => {
@@ -196,14 +197,14 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         }
         ref={inputRef}
         type="date"
-        value={dayjs(selectedDate).format('YYYY-MM-DD')}
+        value={value || dayjs(selectedDate).format('YYYY-MM-DD')}
         onChange={(v) => {
           const newDate = dayjs(v.target.value)
           setDateInvalid(!newDate.isValid())
           if (!newDate.isValid()) {
             return setCurrentDate(dayjs().set('date', 1))
           }
-          onChangeValue(newDate.toDate())
+          onChangeValue(newDate.format('YYYY-MM-DD'))
           setSelectedDate(newDate.toDate())
           setCurrentDate(newDate.set('date', 1))
         }}
@@ -218,7 +219,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             const newDate = dayjs(selectedDate).year(Number(year)).toDate()
             setCurrentDate((prevState) => prevState.year(Number(year)))
             setSelectedDate(newDate)
-            onChangeValue(newDate)
+            onChangeValue(dayjs(newDate).format('YYYY-MM-DD'))
             setOpenSelectYear(false)
           }}
           open={openSelectYear}
@@ -227,7 +228,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         <Header
           onChangeMonth={(month) => {
             const newDate = dayjs(selectedDate).set('month', month).toDate()
-            onChangeValue(newDate)
+            onChangeValue(dayjs(newDate).format('YYYY-MM-DD'))
             setSelectedDate(newDate)
           }}
           onSelectYear={() => {
