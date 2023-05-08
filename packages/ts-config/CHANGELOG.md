@@ -1,5 +1,11 @@
 # @ionext-ui/ts-config
 
+## 2.2.1
+
+### Patch Changes
+
+- updated all
+
 ## 2.2.0
 
 ### Minor Changes

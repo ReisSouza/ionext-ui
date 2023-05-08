@@ -27,6 +27,20 @@ export const colors = {
 
   'secondary-darkest': '#19272F',
 
+  'tertiary-light-normal': '#F0EEF2',
+  'tertiary-light-hover': '#E8E6EB',
+  'tertiary-light-active': '#D0CBD6',
+
+  'tertiary-normal': '#68587A',
+  'tertiary-hover': '#5E4F6E',
+  'tertiary-active': '#534662',
+
+  'tertiary-dark': '#4E425C',
+  'tertiary-dark-hover': '#3E3549',
+  'tertiary-dark-active': '#2F2837',
+
+  'tertiary-darkest': '#241F2B',
+
   'dark-light-normal': '#EEEEEE',
   'dark-light-hover': '#E5E5E6',
   'dark-light-active': '#C9C9CC',

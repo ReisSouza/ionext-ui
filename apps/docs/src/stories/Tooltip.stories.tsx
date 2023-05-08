@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Tooltip, TooltipProps, Button, Text } from '@ionext-ui/react'
+import { Tooltip, TooltipProps, Button, Paragraph } from '@ionext-ui/react'
 
 export default {
   title: 'Display/Tooltip',
@@ -10,7 +10,7 @@ export default {
     trigger: <Button>Personalizar</Button>,
     content: (
       <div>
-        <Text color="#000">Espaço reservado para o conteúdo em exibição </Text>
+        <Paragraph>Espaço reservado para o conteúdo em exibição </Paragraph>
       </div>
     ),
   },

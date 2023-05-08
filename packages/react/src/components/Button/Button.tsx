@@ -1,9 +1,10 @@
-import React, { ComponentProps, ElementType, ReactNode } from 'react'
+import React, { ElementType, ReactNode } from 'react'
 
 import * as S from './styles'
 import { CircleNotch } from 'phosphor-react'
+import { VariantProps } from '@stitches/react'
 
-export type ButtonProps = ComponentProps<typeof S.Button> & {
+export type ButtonProps = VariantProps<typeof S.Button> & {
   children?: ReactNode
   iconLeft?: ReactNode
   iconRight?: ReactNode
@@ -11,6 +12,16 @@ export type ButtonProps = ComponentProps<typeof S.Button> & {
   isLoading?: boolean
   disabled?: boolean
   as?: ElementType
+  form?: string | undefined
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
+  onMouseDown?: React.MouseEventHandler<HTMLButtonElement> | undefined
+  onMouseUp?: React.MouseEventHandler<HTMLButtonElement> | undefined
+  onMouseEnter?: React.MouseEventHandler<HTMLButtonElement> | undefined
+  onMouseLeave?: React.MouseEventHandler<HTMLButtonElement> | undefined
+  ariaLabel?: string
+  title?: string
+  autoCapitalize?: string | undefined
+  type?: 'button' | 'reset' | 'submit' | undefined
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -26,10 +37,10 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <S.Button
       {...rest}
+      size={size}
+      disabled={disabled}
       isLoading={rest.isLoading && !disabled}
       icon={!!iconButton}
-      disabled={disabled}
-      size={size}
       hasIcon={!!iconLeft || !!iconRight}
     >
       {rest.isLoading && !disabled && (
