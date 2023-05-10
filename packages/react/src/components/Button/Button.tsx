@@ -3,6 +3,7 @@ import React, { ElementType, ReactNode } from 'react'
 import * as S from './styles'
 import { CircleNotch } from 'phosphor-react'
 import { VariantProps } from '@stitches/react'
+import { CSS } from '@/types/css'
 
 export type ButtonProps = VariantProps<typeof S.Button> & {
   children?: ReactNode
@@ -22,6 +23,7 @@ export type ButtonProps = VariantProps<typeof S.Button> & {
   title?: string
   autoCapitalize?: string | undefined
   type?: 'button' | 'reset' | 'submit' | undefined
+  css?: CSS
 }
 
 export const Button: React.FC<ButtonProps> = ({

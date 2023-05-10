@@ -208,7 +208,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         type="date"
         value={value || dayjs(selectedDate).format('YYYY-MM-DD')}
         onChange={(v) => {
-          const newDate = dayjs(v.target.value)
+          const newDate = dayjs(v)
           setDateInvalid(!newDate.isValid())
           if (!newDate.isValid()) {
             return setCurrentDate(dayjs().set('date', 1))

@@ -16,7 +16,7 @@ export const Base = styled('button', {
 
   flexDirection: 'row',
 
-  fontWeight: '$regular',
+  fontWeight: '$bold',
   fontFamily: '$default',
 
   overflow: 'hidden',

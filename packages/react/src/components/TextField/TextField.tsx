@@ -13,7 +13,10 @@ import { formatString, FormatStringType } from '@format-string/core'
 import * as S from './styles'
 import { VariantProps } from '@stitches/react'
 
-export type TextFieldProps = Omit<ComponentProps<typeof S.Input>, 'size'> &
+export type TextFieldProps = Omit<
+  ComponentProps<typeof S.Input>,
+  'size' | 'onChange'
+> &
   VariantProps<typeof S.WrappedInput> & {
     hint?: string
     label?: string
@@ -25,6 +28,7 @@ export type TextFieldProps = Omit<ComponentProps<typeof S.Input>, 'size'> &
     complementLabel?: string
     formatStringType?: FormatStringType
     defaultValue?: string
+    onChange?: (value: string | undefined) => void
     onPressIcon?: () => void
     onInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
     value?: string
@@ -49,6 +53,7 @@ export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
       formatStringType,
       onInputChange,
       defaultValue,
+      onChange,
       ...props
     }: TextFieldProps,
     ref,
@@ -67,9 +72,8 @@ export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
       } else {
         finalValue = e.target.value
       }
-
+      onChange && onChange(finalValue)
       setValue(finalValue)
-      console.log(finalValue)
       onInputChange && onInputChange(e)
     }
     return (
@@ -87,7 +91,6 @@ export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
         <S.WrappedInput size={size}>
           {iconLeft && iconLeft}
           <S.Input
-            onInput={(e) => {}}
             {...props}
             value={value || _value}
             onChange={handleChange}

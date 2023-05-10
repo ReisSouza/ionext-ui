@@ -11,6 +11,7 @@ export * from './TextField/TextField'
 export * from './MultiStep/MultiStep'
 export * from './TextArea/TextArea'
 export * from './DatePicker/index'
+export * from './ButtonLink/ButtonLink'
 
 export * from './Typography/Label/Label'
 export * from './Typography/Heading/Heading'

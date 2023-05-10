@@ -2,12 +2,16 @@ import * as Checkbox from '@radix-ui/react-checkbox'
 import * as LabelPrimitive from '@radix-ui/react-label'
 
 import { styled, keyframes } from '../../styles'
-
-export const Container = styled('div', {
+export const WrappedCheckbox = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   gap: '$4',
   alignItems: 'center',
+})
+
+export const Container = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
 })
 
 export const CheckboxContainer = styled(Checkbox.Root, {
@@ -198,4 +202,9 @@ export const Label = styled(LabelPrimitive.Root, {
       },
     },
   },
+})
+
+export const Hint = styled('span', {
+  alignSelf: 'end',
+  color: '$feedback-error-normal',
 })

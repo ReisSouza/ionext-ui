@@ -1,7 +1,6 @@
 import React from 'react'
 
 import * as S from './styles'
-import { Checkbox } from '@/components/Checkbox/Checkbox'
 import { CaretDown, CaretUp } from 'phosphor-react'
 import { CheckedState } from '@radix-ui/react-checkbox'
 
@@ -20,13 +19,7 @@ export const THead: React.FC<ThreadProps> = ({
     <S.ThreadContainer>
       <tr>
         <S.WrappedCheckbox scope="col">
-          <div>
-            <Checkbox
-              isSmall
-              onCheckedChange={onCheckedChange}
-              checked={hasIndeterminate}
-            />
-          </div>
+          <div></div>
         </S.WrappedCheckbox>
 
         {cols?.map((col, index) => {
