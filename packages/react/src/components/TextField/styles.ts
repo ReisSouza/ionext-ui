@@ -62,7 +62,7 @@ export const WrappedInput = styled('div', {
 
         lineHeight: '$base',
 
-        fontSize: '$3',
+        fontSize: '$xxs',
 
         borderRadius: '$1',
       },
@@ -72,14 +72,14 @@ export const WrappedInput = styled('div', {
         padding: '$2 $4',
         borderRadius: '$1',
 
-        fontSize: '$4',
+        fontSize: '$xs',
       },
       large: {
         height: '$12',
         padding: '$3 $4',
         borderRadius: '$1',
 
-        fontSize: '$5',
+        fontSize: '$sm',
       },
     },
   },
@@ -96,7 +96,6 @@ export const Input = styled('input', {
   border: 0,
   width: '100%',
   height: '100%',
-  fontWeight: '$medium',
 
   '&[type="date"]::-webkit-calendar-picker-indicator': {
     display: 'none',
@@ -136,13 +135,13 @@ export const Input = styled('input', {
   variants: {
     size: {
       small: {
-        fontSize: '$sm',
+        fontSize: '$xxs',
       },
       medium: {
-        fontSize: '$sm',
+        fontSize: '$xs',
       },
       large: {
-        fontSize: '$md',
+        fontSize: '$sm',
       },
     },
   },
@@ -158,6 +157,7 @@ export const Hint = styled('span', {
 
 export const Label = styled(LabelPrimitive.Root, {
   color: '$secondary-normal',
+  fontWeight: '$medium',
 
   '& > span': {
     fontSize: '$sm',
@@ -170,13 +170,13 @@ export const Label = styled(LabelPrimitive.Root, {
   variants: {
     size: {
       small: {
-        fontSize: '$sm',
+        fontSize: '$xxs',
       },
       medium: {
-        fontSize: '$md',
+        fontSize: '$xs',
       },
       large: {
-        fontSize: '$lg',
+        fontSize: '$sm',
       },
     },
     disabled: {

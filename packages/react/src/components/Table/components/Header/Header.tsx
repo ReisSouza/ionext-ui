@@ -41,11 +41,7 @@ export const Header: React.FC<HeaderProps> = ({
           iconButton={<FunnelSimple size={16} />}
         />
       </S.HeaderWrappedFilter>
-      <Button
-        size="small"
-        iconRight={iconButtonAdd || <Plus size={20} />}
-        onClick={onAdd}
-      >
+      <Button size="small" iconRight={iconButtonAdd || <Plus size={20} />}>
         {labelButtonAdd || 'Adicionar'}
       </Button>
     </S.HeaderContainer>

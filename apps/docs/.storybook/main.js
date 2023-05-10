@@ -11,19 +11,13 @@ module.exports = {
     "@storybook/addon-mdx-gfm",
   ],
   framework: {
-    // name: '@storybook/react-webpack5', // Remove this
-    name: "@storybook/nextjs", // Add this
+    name: "@storybook/nextjs",
     options: {},
   },
   features: {
     storyStoreV7: true,
   },
-  // viteFinal: (config, { configType }) => {
-  //   if (configType === "PRODUCTION") {
-  //     config.base = "/ionext-ui/";
-  //   }
-  //   return config;
-  // },
+
   docs: {
     autodocs: true,
   },

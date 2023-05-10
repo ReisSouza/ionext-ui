@@ -1,7 +1,7 @@
 import { styled } from '../../styles'
 
 export const BoxRoot = styled('div', {
-  borderRadius: '$2',
+  borderRadius: '$4',
 
   padding: '$4',
 
@@ -20,6 +20,23 @@ export const BoxRoot = styled('div', {
     hasBorder: {
       true: {
         borderColor: '$border',
+      },
+    },
+    elevation: {
+      hover: {
+        boxShadow: '$button-hover',
+      },
+      emphases: {
+        boxShadow: '$emphasis',
+      },
+      'level-1': {
+        boxShadow: '$level-1',
+      },
+      'level-2': {
+        boxShadow: '$level-2',
+      },
+      'level-3': {
+        boxShadow: '$level-3',
       },
     },
   },

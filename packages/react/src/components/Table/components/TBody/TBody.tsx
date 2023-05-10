@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 
 import * as S from './styles'
-import { Checkbox } from '@/components/Checkbox/Checkbox'
 import { DotsThreeVertical } from 'phosphor-react'
 
 export type OptionsTableProps = {
@@ -11,17 +10,17 @@ export type OptionsTableProps = {
 }
 export type RowsProps = {
   cols: ReactNode[]
-  id?: string | number
+  id?: string
   options?: OptionsTableProps[]
 }
 
 export type TBodyProps = {
   rows: RowsProps[]
-  handleClickRow?: (id: string | number) => void
+  handleClickRow?: (id: string) => void
   setItemsChecked?: React.Dispatch<React.SetStateAction<string[]>>
   itemsChecked?: string[]
   onItemsChecked?: (itemsChecked: string[]) => void
-  onChecked?: (id: string | number | undefined) => void
+  onChecked?: (id: string | undefined) => void
 }
 
 export const TBody: React.FC<TBodyProps> = ({
@@ -32,24 +31,24 @@ export const TBody: React.FC<TBodyProps> = ({
   onItemsChecked,
   onChecked,
 }: TBodyProps) => {
-  const handleOnCheckChanged = (id: string | number | undefined) => {
-    if (setItemsChecked) {
-      setItemsChecked((prevState) => {
-        if (prevState.includes(`${id}`)) {
-          const prevStateRemovedItem = prevState.filter(
-            (prevItem) => prevItem !== id,
-          )
-          if (onItemsChecked) onItemsChecked(prevStateRemovedItem)
-          return prevStateRemovedItem
-        }
-        if (onItemsChecked) onItemsChecked([...prevState, `${id}`])
-        return [...prevState, `${id}`]
-      })
-    }
-    if (onChecked) {
-      onChecked(id)
-    }
-  }
+  // const handleOnCheckChanged = (id: string | undefined) => {
+  //   if (setItemsChecked) {
+  //     setItemsChecked((prevState) => {
+  //       if (prevState.includes(`${id}`)) {
+  //         const prevStateRemovedItem = prevState.filter(
+  //           (prevItem) => prevItem !== id,
+  //         )
+  //         if (onItemsChecked) onItemsChecked(prevStateRemovedItem)
+  //         return prevStateRemovedItem
+  //       }
+  //       if (onItemsChecked) onItemsChecked([...prevState, `${id}`])
+  //       return [...prevState, `${id}`]
+  //     })
+  //   }
+  //   if (onChecked) {
+  //     onChecked(id)
+  //   }
+  // }
   return (
     <S.TBodyContainer>
       {rows?.map((row, index) => {
@@ -57,16 +56,15 @@ export const TBody: React.FC<TBodyProps> = ({
           <S.Tr key={index} hasHandleClickRow={!!handleClickRow}>
             <S.WrappedCheckbox>
               <div>
-                <Checkbox
-                  isSmall
+                {/* <Checkbox
                   checked={itemsChecked?.includes(`${row.id}`)}
                   value={row.id}
                   onCheckedChange={() => handleOnCheckChanged(row.id)}
-                />
+                /> */}
               </div>
             </S.WrappedCheckbox>
 
-            {row.cols.map((col, index) => {
+            {row?.cols?.map((col, index) => {
               return (
                 <S.Td
                   onClick={

@@ -1,18 +1,28 @@
-import { ComponentProps } from '@stitches/react'
+import { VariantProps } from '@stitches/react'
 import React from 'react'
 
 import * as S from './styles'
+import { User } from 'phosphor-react'
 
-export type AvatarProps = ComponentProps<typeof S.ContainerAvatar> & {
+export type AvatarProps = VariantProps<typeof S.ContainerAvatar> & {
   src?: string
+  icon?: string
+  title?: string
+  arialLabel?: string
   fallbackName?: string
+  disabledHover?: boolean
+  onClick?: React.MouseEventHandler<HTMLSpanElement> | undefined
 }
 
 export const Avatar: React.FC<AvatarProps> = ({
-  variants = 'primary',
-  size = 'medium',
-  fallbackName = 'Reis Souza',
   src,
+  icon,
+  title,
+  onClick,
+  arialLabel,
+  fallbackName,
+  disabledHover = false,
+  ...rest
 }: AvatarProps) => {
   const getInitials = (userName: string) => {
     const words = userName.split(' ')
@@ -22,11 +32,21 @@ export const Avatar: React.FC<AvatarProps> = ({
       words.length === 1 ? words[0][1] : words[lastIndex][0] || words[0][1]
     }`.toUpperCase()
   }
+
   return (
-    <S.ContainerAvatar hasImage={!!src} size={size} variants={variants}>
+    <S.ContainerAvatar
+      {...rest}
+      hasImage={!!src}
+      aria-label={arialLabel}
+      data-disabledHover={disabledHover}
+    >
       <S.ImageAvatar src={src} alt={`Foto do usuário ${fallbackName}`} />
-      <S.fallbackAvatar delayMs={600}>
-        {getInitials(fallbackName || '')}
+      <S.fallbackAvatar delayMs={600} size={rest.size}>
+        {!src && !icon && !fallbackName ? (
+          <User weight="fill" />
+        ) : (
+          icon || getInitials(fallbackName || '')
+        )}
       </S.fallbackAvatar>
     </S.ContainerAvatar>
   )

@@ -14,21 +14,74 @@ export default {
   },
 
   argTypes: {
+    onChange: {
+      defaultValue: undefined,
+      description:
+        'Função de callback que retorna event do input; (value:string) => void',
+      type: 'function',
+    },
+    onInputChange: {
+      defaultValue: undefined,
+      description:
+        'Função de callback que retorna event do input; (value:string) => void',
+      type: 'function',
+    },
+    type: {
+      options: ['email', 'text', 'password', 'tel'],
+      control: {
+        type: 'inline-radio',
+      },
+      defaultValue: 'medium',
+      description: 'Defina o tamanho do input',
+      type: 'string',
+    },
+    formatStringType: {
+      options: [
+        'number',
+        'cnpj',
+        'cpf',
+        'phone',
+        'postalCode',
+        'cpfOurCnpj',
+        'currency',
+        'rg',
+        'credCard',
+        'obscureEmail',
+        'telephone',
+        'cardExpirationDate',
+        'phoneOrTelephone',
+      ],
+      control: {
+        type: 'select',
+      },
+      defaultValue: 'medium',
+      description: 'Defina o tamanho do input',
+      type: 'string',
+    },
     size: {
       options: ['small', 'medium', 'large'],
       control: {
         type: 'inline-radio',
       },
+      defaultValue: 'medium',
+      description: 'Defina o tamanho do input',
+      type: 'string',
     },
     iconLeft: {
       control: {
         type: 'string',
       },
+      defaultValue: undefined,
+      description: 'Defina o ícone que vai ser renderizado a esquerda',
+      type: 'symbol',
     },
     iconRight: {
       control: {
         type: 'string',
       },
+      defaultValue: undefined,
+      description: 'Defina o ícone que vai ser renderizado a direita',
+      type: 'symbol',
     },
   },
   decorators: [

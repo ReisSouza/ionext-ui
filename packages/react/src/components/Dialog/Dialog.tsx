@@ -5,8 +5,8 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import * as S from './styles'
 import { CSS } from '@/types/css'
-import { Heading } from '../Heading/Heading'
-import { Text } from '../Text/Text'
+import { Heading } from '../Typography/Heading/Heading'
+import { Paragraph } from '../Typography/Paragraph/Paragraph'
 
 type DialogCloseProps = DialogPrimitive.DialogCloseProps
 
@@ -50,7 +50,7 @@ export const Dialog: React.FC<DialogProps> = ({
             </Heading>
           </S.DialogTitle>
           <S.DialogDescription>
-            <Text color="secondary">{description}</Text>
+            <Paragraph color="secondary">{description}</Paragraph>
           </S.DialogDescription>
           {content}
           <S.Flex css={cssFooter}>
@@ -70,3 +70,5 @@ export const Dialog: React.FC<DialogProps> = ({
 }
 
 export default Dialog
+
+Dialog.displayName = 'Dialog'

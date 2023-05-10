@@ -6,6 +6,8 @@
         "icomoon",
         "ionext",
         "rocketseat",
-        "tsup"
-    ]
+        "tsup",
+        "xxxs"
+    ],
+    "typescript.tsdk": "node_modules\\typescript\\lib"
 }

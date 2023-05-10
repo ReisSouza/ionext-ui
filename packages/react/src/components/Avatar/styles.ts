@@ -16,29 +16,15 @@ export const ContainerAvatar = styled(AvatarPrimitive.Root, {
 
   position: 'relative',
 
-  borderRadius: '999px',
-
   textAlign: 'center',
   fontWeight: '500',
-
-  //
-  '& .ripple-effect': {
-    position: 'absolute',
-    transform: 'translate(-50%, -50%)',
-    borderRadius: '50%',
-    width: '5px',
-    height: '5px',
-    pointerEvents: 'none',
-    zIndex: 5,
-    animation: `${scaleUp} 0.7s linear infinite`,
-  },
 
   variants: {
     size: {
       extraSmall: {
         width: '$7',
-        height: '7',
-        fontSize: '$sm',
+        height: '$7',
+        fontSize: '$xxs',
         lineHeight: '$default',
       },
       small: {
@@ -56,24 +42,36 @@ export const ContainerAvatar = styled(AvatarPrimitive.Root, {
       large: {
         width: '$16',
         height: '$16',
-        fontSize: '$xl',
+        fontSize: '$md',
         lineHeight: '$list',
       },
       extraLarge: {
         width: '$20',
         height: '$20',
+        fontSize: '$lg',
+        lineHeight: '$list',
+      },
+      bigLarge: {
+        width: '$24',
+        height: '$24',
+        fontSize: '$xl',
+        lineHeight: '$list',
+      },
+      masterLarge: {
+        width: '$32',
+        height: '$32',
         fontSize: '$xl',
         lineHeight: '$list',
       },
     },
-    variants: {
+    color: {
       primary: {
         color: '$white',
         background: '$primary-normal',
-        '&:not(:disabled):hover': {
+        '&:not(&[data-disabledHover=true], :disabled):hover': {
           background: '$primary-hover',
         },
-        '&:not(:disabled):active': {
+        '&:not(&[data-disabledHover=true], :disabled):active': {
           background: '$primary-active',
         },
 
@@ -84,11 +82,53 @@ export const ContainerAvatar = styled(AvatarPrimitive.Root, {
       secondary: {
         color: '$white',
         background: '$secondary-normal',
-        '&:not(:disabled):hover': {
+        '&:not(&[data-disabledHover=true], :disabled):hover': {
           background: '$secondary-hover',
         },
-        '&:not(:disabled):active': {
+        '&:not(&[data-disabledHover=true], :disabled):active': {
           background: '$secondary-active',
+        },
+
+        '&:disabled': {
+          backgroundColor: '$border',
+        },
+      },
+      tertiary: {
+        color: '$white',
+        background: '$tertiary-normal',
+        '&:not(&[data-disabledHover=true], :disabled):hover': {
+          background: '$tertiary-hover',
+        },
+        '&:not(&[data-disabledHover=true], :disabled):active': {
+          background: '$tertiary-active',
+        },
+
+        '&:disabled': {
+          backgroundColor: '$border',
+        },
+      },
+      success: {
+        color: '$white',
+        background: '$feedback-success-normal',
+        '&:not(&[data-disabledHover=true], :disabled):hover': {
+          background: '$feedback-success-hover',
+        },
+        '&:not(&[data-disabledHover=true], :disabled):active': {
+          background: '$feedback-success-active',
+        },
+
+        '&:disabled': {
+          backgroundColor: '$border',
+        },
+      },
+      danger: {
+        color: '$white',
+        background: '$feedback-error-normal',
+        '&:not(&[data-disabledHover=true], :disabled):hover': {
+          background: '$feedback-error-hover',
+        },
+        '&:not(&[data-disabledHover=true], :disabled):active': {
+          background: '$feedback-error-active',
         },
 
         '&:disabled': {
@@ -99,16 +139,35 @@ export const ContainerAvatar = styled(AvatarPrimitive.Root, {
     hasImage: {
       true: {},
     },
+    isCursorPoint: {
+      true: {
+        cursor: 'pointer',
+      },
+    },
+    variants: {
+      squared: {
+        borderRadius: '$2',
+      },
+      rounded: {
+        borderRadius: '$full',
+      },
+    },
   },
   compoundVariants: [
     {
-      variants: 'invert',
+      variants: '',
       hasImage: true,
       css: {
         border: 'none',
       },
     },
   ],
+
+  defaultVariants: {
+    size: 'medium',
+    color: 'primary',
+    variants: 'rounded',
+  },
 })
 
 export const ImageAvatar = styled(AvatarPrimitive.Image, {
@@ -116,4 +175,41 @@ export const ImageAvatar = styled(AvatarPrimitive.Image, {
   height: '100%',
 })
 
-export const fallbackAvatar = styled(AvatarPrimitive.Fallback, {})
+export const fallbackAvatar = styled(AvatarPrimitive.Fallback, {
+  variants: {
+    size: {
+      extraSmall: {
+        svg: {
+          width: '$3',
+          height: '$3',
+        },
+      },
+      small: {
+        svg: {
+          width: '$4',
+          height: '$4',
+        },
+      },
+      medium: {
+        width: '$6',
+        height: '$6',
+      },
+      large: {
+        width: '$6',
+        height: '$6',
+      },
+      extraLarge: {
+        width: '$10',
+        height: '$10',
+      },
+      bigLarge: {
+        width: '$12',
+        height: '$12',
+      },
+      masterLarge: {
+        width: '$14',
+        height: '$14',
+      },
+    },
+  },
+})

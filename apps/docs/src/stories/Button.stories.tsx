@@ -10,8 +10,13 @@ export default {
     size: 'medium',
     variant: 'contained',
     color: 'primary',
-    isLoading: false,
-    disabled: false,
+    as: undefined,
+    onMouseDown: undefined,
+    onClick: undefined,
+    onMouseEnter: undefined,
+    onMouseLeave: undefined,
+    onMouseUp: undefined,
+    isLoading: undefined,
   },
   argTypes: {
     size: {
@@ -19,23 +24,125 @@ export default {
       control: {
         type: 'inline-radio',
       },
+      defaultValue: 'medium',
+      description: 'Defina o tamanho do botão',
     },
     color: {
-      options: ['primary', 'secondary', 'danger', 'success'],
+      options: ['primary', 'secondary', 'danger', 'success', 'tertiary'],
       control: {
         type: 'inline-radio',
       },
+      defaultValue: 'primary',
+      description: 'Defina o a cor de fundo e a cor do texto do botão',
     },
     variant: {
       options: ['contained', 'text', 'outlined'],
       control: {
         type: 'inline-radio',
       },
+      defaultValue: 'contained',
+      description:
+        'Defina o estilo do botão, sendo contained, com fundo preenchido, outlined somente borda e texto, text somente texto',
     },
     fullWidth: {
       control: {
         type: 'boolean',
       },
+      description: 'Defina se o botão vai ocupar todo o espaço possível',
+      defaultValue: false,
+    },
+    onClick: {
+      type: 'function',
+      defaultValue: undefined,
+      description: 'Função de evento quando o botão e clicado',
+    },
+    onMouseDown: {
+      type: 'function',
+      defaultValue: undefined,
+      description: 'Função de evento quando o mouse esta pressionado',
+    },
+    onMouseEnter: {
+      type: 'function',
+      defaultValue: undefined,
+      description: 'Função de evento quando o mouse e entra no botão',
+    },
+    onMouseLeave: {
+      type: 'function',
+      defaultValue: undefined,
+      description: 'Função de evento quando o mouse e sai de cima do botão',
+    },
+    onMouseUp: {
+      type: 'function',
+      defaultValue: undefined,
+      description: 'Função de evento quando o mouse e liberado',
+    },
+    form: {
+      type: 'string',
+      defaultValue: undefined,
+      description: 'Vincule o botão a um formulário',
+    },
+    ariaLabel: {
+      type: 'string',
+      defaultValue: undefined,
+      description: 'Defina um nome de acessibilidade',
+    },
+    title: {
+      type: 'string',
+      defaultValue: undefined,
+      description:
+        'Defina um nome para o botão em casos aonde não tenha conteúdo escrito',
+    },
+    type: {
+      options: ['reset', 'submit', 'button'],
+      control: {
+        type: 'inline-radio',
+      },
+      defaultValue: 'button',
+      description: 'Defina qual tipo de ação o botão vai executar',
+    },
+    as: {
+      type: 'string',
+      defaultValue: 'button',
+      description: 'Defina o elemento html que será revernizado',
+    },
+    disabled: {
+      type: 'boolean',
+      defaultValue: false,
+      description: 'Defina se o botão está ativo para ação ou não',
+    },
+    autoCapitalize: {
+      options: ['on', 'off', 'words', 'characters'],
+      control: {
+        type: 'inline-radio',
+      },
+      defaultValue: 'off',
+      description: 'Defina se o botão vai ter capitalização',
+    },
+    children: {
+      type: 'symbol',
+      defaultValue: undefined,
+      description: 'Conteúdo interno do botão',
+    },
+
+    iconButton: {
+      defaultValue: undefined,
+      description: 'Apenas ícone no botão',
+      type: 'symbol',
+    },
+    iconLeft: {
+      defaultValue: undefined,
+      description: 'Ícone a esquerda',
+      type: 'symbol',
+    },
+    iconRight: {
+      defaultValue: undefined,
+      description: 'Ícone a direita',
+      type: 'symbol',
+    },
+    isLoading: {
+      defaultValue: false,
+      description: 'Defina se o botão esta em estado de carregamento',
+      type: 'boolean',
     },
   },
 } as Meta<ButtonProps>

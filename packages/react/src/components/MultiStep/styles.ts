@@ -1,9 +1,9 @@
+import { Paragraph } from '..'
 import { styled } from '../../styles'
-import { Text } from '@/components'
 
 export const MultiStepContainer = styled('div', {})
 
-export const Label = styled(Text, {
+export const Label = styled(Paragraph, {
   color: '$secondary-normal',
 
   defaultVariants: {
