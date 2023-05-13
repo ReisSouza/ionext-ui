@@ -1,7 +1,7 @@
 {
   "name": "@ionext-ui/eslint-config",
   "main": "index.js",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "private": true,
   "license": "ISC",
   "dependencies": {
@@ -17,7 +17,9 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.2",
-    "eslint": "^8.35.0"
+    "eslint": "^8.35.0",
+    "eslint-config-next": "^13.4.1",
+    "eslint-config-turbo": "^1.9.3"
   },
   "peerDependencies": {
     "typescript": ">=3.3.1"
