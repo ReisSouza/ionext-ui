@@ -1,5 +1,11 @@
 # @ionext-ui/eslint-config
 
+## 3.0.1
+
+### Patch Changes
+
+- updated
+
 ## 3.0.0
 
 ### Major Changes
