@@ -12,7 +12,7 @@ export const WrappedInput = styled('div', {
   alignItems: 'center',
   boxSizing: 'border-box',
 
-  borderWidth: 'thin',
+  borderWidth: '$thin',
   borderStyle: 'solid',
   borderColor: '$secondary-light-active',
 

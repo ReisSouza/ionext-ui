@@ -13,7 +13,7 @@ export const Container = styled('div', {
 
 export const SelectTrigger = styled(Select.Trigger, {
   all: 'unset',
-  borderWidth: '$default',
+  borderWidth: '$thin',
   borderStyle: 'solid',
   borderColor: '$secondary-light-active',
 

@@ -12,6 +12,7 @@ import { formatString, FormatStringType } from '@format-string/core'
 
 import * as S from './styles'
 import { VariantProps } from '@stitches/react'
+import { CSS } from '@/types/css'
 
 export type TextFieldProps = Omit<
   ComponentProps<typeof S.Input>,
@@ -34,6 +35,7 @@ export type TextFieldProps = Omit<
     value?: string
     size?: 'small' | 'medium' | 'large'
     status?: 'default' | 'error' | 'warning' | 'success' | 'info'
+    css?: CSS
   }
 
 export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
@@ -43,6 +45,7 @@ export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
       iconRight,
       size = 'medium',
       label,
+      css,
       hint,
       hasIconHint,
       complementLabel,
@@ -77,7 +80,7 @@ export const TextField = forwardRef<ElementRef<typeof S.Input>, TextFieldProps>(
       onInputChange && onInputChange(e)
     }
     return (
-      <S.ContainedTextField>
+      <S.ContainedTextField css={css}>
         {label && (
           <S.Label
             disabled={props.disabled}
