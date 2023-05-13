@@ -1,6 +1,6 @@
 {
   "name": "@ionext-ui/react",
-  "version": "5.0.6",
+  "version": "5.0.7",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
