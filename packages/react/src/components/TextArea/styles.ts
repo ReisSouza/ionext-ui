@@ -145,7 +145,7 @@ export const Label = styled(LabelPrimitive.Root, {
   color: '$secondary-normal',
 
   '& > span': {
-    fontSize: '$sm',
+    fontSize: '$xxxs',
     color: '$secondary-light-active',
   },
 

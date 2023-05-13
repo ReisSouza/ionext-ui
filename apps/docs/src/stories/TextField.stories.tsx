@@ -11,6 +11,7 @@ export default {
     placeholder: 'user@user.com',
     size: 'medium',
     type: 'email',
+    complementLabel: 'CPF ou CNPJ',
   },
 
   argTypes: {

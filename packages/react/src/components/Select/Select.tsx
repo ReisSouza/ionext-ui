@@ -1,5 +1,5 @@
 import React, { useId, useState } from 'react'
-import { CaretDown, Check } from 'phosphor-react'
+import { CaretDown, Check, WarningCircle } from 'phosphor-react'
 import { ComponentProps } from '@stitches/react'
 import * as SelectPrimitive from '@radix-ui/react-select'
 
@@ -31,8 +31,12 @@ export type SelectProps = ComponentProps<typeof SelectPrimitive.Root> & {
   avoidCollisions: boolean
   collisionPadding: number | Partial<Record<SideProps, number>>
   arrowPadding: number
+  hasIconHint?: boolean
+  hint?: string
+  complementLabel?: string
   label: string
   htmlFor: string
+  isRequired?: boolean
 }
 
 export type ItemProps = SelectPrimitive.SelectItemProps & {
@@ -67,7 +71,12 @@ export const Select = ({
   placeholder = 'selecione',
   label,
   htmlFor,
-
+  size,
+  disabled,
+  hint,
+  complementLabel,
+  hasIconHint,
+  isRequired,
   ...rest
 }: SelectProps) => {
   const [valueSelected, setValueSelected] = useState<string | undefined>()
@@ -84,15 +93,12 @@ export const Select = ({
         }}
       >
         {label && (
-          <S.Label
-            disabled={rest.disabled}
-            size={rest.size}
-            htmlFor={htmlFor || id}
-          >
-            {label}
+          <S.Label disabled={disabled} size={size} htmlFor={htmlFor || id}>
+            {label} <span>{complementLabel}</span>{' '}
+            {isRequired && <span className="isRequired">*</span>}
           </S.Label>
         )}
-        <S.SelectTrigger size={rest.size}>
+        <S.SelectTrigger size={size}>
           <SelectPrimitive.Value placeholder={placeholder} />
           <SelectPrimitive.Icon>
             <CaretDown size={16} />
@@ -152,6 +158,12 @@ export const Select = ({
           </S.SelectContent>
         </SelectPrimitive.Portal>
       </SelectPrimitive.Root>
+      {hint && (
+        <S.Hint>
+          {hasIconHint && <WarningCircle size={24} />}
+          {hint}
+        </S.Hint>
+      )}
     </S.Container>
   )
 }

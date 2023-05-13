@@ -112,6 +112,11 @@ export const SelectTrigger = styled(Select.Trigger, {
   },
 })
 
+export const Hint = styled('span', {
+  alignSelf: 'end',
+  color: '$feedback-error-normal',
+})
+
 export const SelectContent = styled(Select.Content, {
   overflow: 'hidden',
   backgroundColor: 'white',

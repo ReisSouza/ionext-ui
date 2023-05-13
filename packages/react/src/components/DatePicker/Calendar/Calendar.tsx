@@ -4,6 +4,7 @@ import React, {
   ComponentProps,
   useCallback,
   useEffect,
+  useId,
   useMemo,
   useRef,
   useState,
@@ -36,6 +37,13 @@ export type DatePickerProps = ComponentProps<typeof TextField> & {
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>
   open?: boolean
   defaultOpen?: boolean
+  hint?: string
+  label?: string
+  isRequired?: boolean
+  hasIconHint?: boolean
+  complementLabel?: string
+  size?: 'small' | 'medium' | 'large'
+  status?: 'default' | 'error' | 'warning' | 'success' | 'info'
 }
 
 export const DatePicker: React.FC<DatePickerProps> = ({
@@ -44,6 +52,15 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   open,
   setOpen,
   value,
+  label,
+  hint,
+  hasIconHint,
+  status,
+  size,
+  htmlFor,
+  disabled,
+  isRequired,
+  complementLabel,
   onChange,
   ...rest
 }: DatePickerProps) => {
@@ -192,9 +209,15 @@ export const DatePicker: React.FC<DatePickerProps> = ({
       return handleUpdatedArrowDown()
     if (dateInvalid && onKeyPressed === 'ArrowUp') return handleUpdatedArrowUp()
   }, [dateInvalid, onKeyPressed])
-
+  const id = useId()
   return (
     <S.Container className="meu-elemento">
+      {label && (
+        <S.Label disabled={disabled} size={size} htmlFor={htmlFor || id}>
+          {label} <span>{complementLabel}</span>{' '}
+          {isRequired && <span className="isRequired">*</span>}
+        </S.Label>
+      )}
       <TextField
         {...rest}
         iconRight={

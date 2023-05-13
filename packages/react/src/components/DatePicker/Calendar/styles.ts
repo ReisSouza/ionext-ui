@@ -1,5 +1,5 @@
 import { keyframes, styled } from '@/styles'
-
+import * as LabelPrimitive from '@radix-ui/react-label'
 const slideDownAndFadeOpen = keyframes({
   '0%': { opacity: 0, transform: 'translateY(-2px)' },
   '100%': { opacity: 1, transform: 'translateY(0)' },
@@ -46,8 +46,7 @@ export const CalendarContainer = styled('section', {
 
 export const Container = styled('div', {
   width: '100%',
-  // position: 'relative',
-  // flex: 1,
+  flex: 1,
 })
 
 export const CalendarBody = styled('table', {
@@ -55,4 +54,41 @@ export const CalendarBody = styled('table', {
   fontFamily: '$default',
   borderSpacing: '0.25rem',
   tableLayout: 'fixed',
+})
+
+export const Hint = styled('span', {
+  alignSelf: 'end',
+  color: '$feedback-error-normal',
+})
+
+export const Label = styled(LabelPrimitive.Root, {
+  color: '$secondary-normal',
+  fontWeight: '$medium',
+
+  '& > span': {
+    fontSize: '$xxxs',
+    color: '$secondary-light-active',
+  },
+
+  '& .isRequired': {
+    color: '$feedback-error-normal',
+  },
+  variants: {
+    size: {
+      small: {
+        fontSize: '$xxs',
+      },
+      medium: {
+        fontSize: '$xs',
+      },
+      large: {
+        fontSize: '$sm',
+      },
+    },
+    disabled: {
+      true: {
+        opacity: 0.5,
+      },
+    },
+  },
 })

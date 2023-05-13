@@ -160,7 +160,7 @@ export const Label = styled(LabelPrimitive.Root, {
   fontWeight: '$medium',
 
   '& > span': {
-    fontSize: '$sm',
+    fontSize: '$xxxs',
     color: '$secondary-light-active',
   },
 
