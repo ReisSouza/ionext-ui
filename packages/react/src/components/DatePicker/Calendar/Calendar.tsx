@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { CalendarPlus } from 'phosphor-react'
+import { CalendarPlus, WarningCircle } from 'phosphor-react'
 import React, {
   ComponentProps,
   useCallback,
@@ -278,6 +278,12 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           />
         </S.CalendarBody>
       </S.CalendarContainer>
+      {hint && (
+        <S.Hint>
+          {hasIconHint && <WarningCircle size={24} />}
+          {hint}
+        </S.Hint>
+      )}
     </S.Container>
   )
 }

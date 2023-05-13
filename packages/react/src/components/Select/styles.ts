@@ -22,14 +22,13 @@ export const SelectTrigger = styled(Select.Trigger, {
   justifyContent: 'space-between',
   borderRadius: 4,
   boxSizing: 'border-box',
-  fontSize: '$sm !important',
 
   lineHeight: 1,
   gap: 5,
   backgroundColor: 'transparent',
   color: '$secondary-normal',
   width: '100%',
-  fontWeight: '$medium',
+  fontSize: '$xxs !important',
 
   '& label': {
     width: '100%',
@@ -41,8 +40,6 @@ export const SelectTrigger = styled(Select.Trigger, {
   },
   '&:focus': { outline: 'none' },
   '&[data-placeholder]': {
-    color: '$secondary-light-active',
-
     '&:hover': {
       color: '$secondary-normal !important',
     },

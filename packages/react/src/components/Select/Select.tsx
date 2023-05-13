@@ -22,20 +22,20 @@ export type SideProps = 'top' | 'right' | 'bottom' | 'left'
 
 export type SelectProps = ComponentProps<typeof SelectPrimitive.Root> & {
   options: SelectItemProps[]
-  size: SizeProps
-  placeholder: string
+  size?: SizeProps
+  placeholder?: string
   side?: SideProps
   sideOffset?: number
   align?: AlignProps
   alignOffset?: number
-  avoidCollisions: boolean
-  collisionPadding: number | Partial<Record<SideProps, number>>
-  arrowPadding: number
+  avoidCollisions?: boolean
+  collisionPadding?: number | Partial<Record<SideProps, number>>
+  arrowPadding?: number
   hasIconHint?: boolean
   hint?: string
   complementLabel?: string
-  label: string
-  htmlFor: string
+  label?: string
+  htmlFor?: string
   isRequired?: boolean
 }
 
@@ -85,6 +85,7 @@ export const Select = ({
     <S.Container>
       <SelectPrimitive.Root
         {...rest}
+        disabled={disabled}
         onValueChange={(v) => {
           setValueSelected(v)
           if (rest.onValueChange) {
