@@ -1,5 +1,11 @@
 # @ionext-ui/react
 
+## 5.0.1
+
+### Patch Changes
+
+- updated
+
 ## 5.0.0
 
 ### Major Changes

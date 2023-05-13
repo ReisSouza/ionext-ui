@@ -19,6 +19,11 @@ export const {
     height: 'space',
     width: 'space',
   },
-  media: {},
+  media: {
+    dark: '(prefers-color-scheme: dark)',
+    custom: '(prefers-color-scheme: custom)',
+  },
   theme: MainTheme,
 })
+
+export type Theme = keyof typeof MainTheme
