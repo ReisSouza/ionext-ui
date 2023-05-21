@@ -22,15 +22,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
 
-      - name: Install Turbo CLI
-        run: npm install turbo --global  
-
-      - name: Install Turbo CLI Linux
-        run: npm install turbo-linux-64 --global
-
       - run: npm ci
-
-       
 
       - name: Publish to NPM
         id: changesets

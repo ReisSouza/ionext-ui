@@ -18,13 +18,6 @@ jobs:
           node-version: 16
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
-          
-
-      - name: Install Turbo CLI
-        run: npm install turbo --global
-        
-      - name: Install Turbo CLI Linux
-        run: npm install turbo-linux-64 --global
 
       - run: npm ci
 
@@ -38,5 +31,3 @@ jobs:
         run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
-
-# 
