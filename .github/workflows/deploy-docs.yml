@@ -22,6 +22,8 @@ jobs:
 
       - name: Install Turbo CLI
         run: npm install turbo --global
+        
+      - name: Install Turbo CLI Linux
         run: npm install turbo-linux-64 --global
 
       - run: npm ci
