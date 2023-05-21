@@ -7,8 +7,8 @@ import { CheckedState } from '@radix-ui/react-checkbox'
 
 export type CheckboxProps = VariantProps<typeof S.CheckboxContainer> & {
   defaultChecked?: boolean
-  checked?: boolean
-  onCheckedChange?: (checked: CheckedState) => void
+  checked?: CheckedState
+  onCheckedChange?: (checked: boolean) => void
   hasIconHint?: boolean
   disabled?: boolean
   required?: boolean

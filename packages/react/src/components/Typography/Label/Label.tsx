@@ -11,11 +11,10 @@ export interface LabelProps extends VariantProps<typeof S.DisplayContainer> {
   children?: React.ReactNode
 }
 
-export const Label: React.FC<LabelProps> = ({
-  children,
-  ...rest
-}: LabelProps) => {
+const Label: React.FC<LabelProps> = ({ children, ...rest }: LabelProps) => {
   return <S.DisplayContainer {...rest}>{children}</S.DisplayContainer>
 }
+
+export default Label
 
 Label.displayName = 'Label'

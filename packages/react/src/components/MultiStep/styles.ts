@@ -1,5 +1,5 @@
-import { Paragraph } from '..'
 import { styled } from '../../styles'
+import Paragraph from '../Typography/Paragraph/Paragraph'
 
 export const MultiStepContainer = styled('div', {})
 

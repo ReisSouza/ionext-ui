@@ -5,7 +5,7 @@ export const TBodyContainer = styled('tbody', {})
 export const Tr = styled('tr', {
   '& + &': {
     borderTopColor: '$border',
-    borderTopWidth: '$default',
+    borderTopWidth: '1px',
     borderTopStyle: 'solid',
   },
   '&:hover': {
@@ -20,22 +20,19 @@ export const Tr = styled('tr', {
 
 export const Td = styled('td', {
   whiteSpace: 'nowrap',
+  padding: '$2 $4',
 })
 
 export const Options = styled('td', {
-  width: '$20',
-  '& div': {
-    padding: '0 $4',
-    display: 'flex',
-    justifyContent: 'center',
-  },
+  width: '$16',
+  padding: '$2 $4',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 })
 
-export const WrappedCheckbox = styled('th', {
-  width: '40px !important',
-
-  '& div': {
-    padding: '$4',
+export const WrappedCheckbox = styled('td', {
+  '& > div': {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

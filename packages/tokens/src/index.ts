@@ -11,3 +11,5 @@ export * from './border-radius'
 export * from './border-width'
 
 export * from './shadows'
+
+export * from './media'

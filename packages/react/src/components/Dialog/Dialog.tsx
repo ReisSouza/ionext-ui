@@ -6,7 +6,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import * as S from './styles'
 import { CSS } from '@/types/css'
 import { Heading } from '../Typography/Heading/Heading'
-import { Paragraph } from '../Typography/Paragraph/Paragraph'
+import Paragraph from '../Typography/Paragraph/Paragraph'
 
 type DialogCloseProps = DialogPrimitive.DialogCloseProps
 

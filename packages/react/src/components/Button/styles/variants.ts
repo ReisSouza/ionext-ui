@@ -1,5 +1,10 @@
 export const variants = {
   variants: {
+    hasRounded: {
+      true: {
+        borderRadius: '$pill',
+      },
+    },
     variant: {
       contained: {
         '& svg': {

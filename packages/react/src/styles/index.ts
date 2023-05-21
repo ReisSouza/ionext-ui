@@ -1,8 +1,18 @@
 import { createStitches, defaultThemeMap } from '@stitches/react'
 
 import { MainTheme } from './themes/main/main'
+import { media } from '@ionext-ui/tokens'
 
-export type { CSS } from '@stitches/react'
+export type {
+  CSS,
+  VariantProps,
+  ComponentProps,
+  ScaleValue,
+  CSSProperties,
+  CreateStitches,
+  DefaultThemeMap,
+  PropertyValue,
+} from '@stitches/react'
 
 export const {
   styled,
@@ -22,6 +32,7 @@ export const {
   media: {
     dark: '(prefers-color-scheme: dark)',
     custom: '(prefers-color-scheme: custom)',
+    ...media,
   },
   theme: MainTheme,
 })

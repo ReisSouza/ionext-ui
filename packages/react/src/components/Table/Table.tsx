@@ -1,33 +1,51 @@
 import React, { useState } from 'react'
 
 import * as S from './styles'
-import { Header, RowsProps, TBody, THead } from './components'
+import {
+  Header,
+  HeaderProps,
+  TBody,
+  TBodyProps,
+  THead,
+  ThreadProps,
+} from './components'
 import { CheckedState } from '@radix-ui/react-checkbox'
 
-export type TableProps = {
-  rows: RowsProps[]
-  handleClickRow?: (id: string | number) => void
-  cols: React.ReactNode[]
-  onItemsSelected?: (items: string[]) => void
-  onItemsRemove?: (items: string[]) => void
-  onAdd?: () => void
-  labelButtonAdd?: string
-  iconButtonAdd?: React.ReactNode
-}
+export type TableProps = Omit<
+  ThreadProps,
+  'onCheckedChange' | 'canRenderCheckbox' | 'hasIndeterminate'
+> &
+  Omit<
+    HeaderProps,
+    'hasIndeterminate' | 'itemsChecked' | 'canRenderCheckbox' | 'onItemsRemove'
+  > &
+  Omit<
+    TBodyProps,
+    'canRenderCheckbox' | 'itemsChecked' | 'setItemsChecked' | 'onItemsChecked'
+  > & {
+    onItemsSelected?: (items: string[]) => void
+    onItemsRemove?: (items: string[]) => Promise<void>
+  }
 
 export const Table: React.FC<TableProps> = ({
   rows,
   handleClickRow,
   cols,
-  onItemsSelected = (v) => console.log(v),
-  onItemsRemove = (v) => console.log(v),
+  onItemsSelected,
+  onItemsRemove,
   iconButtonAdd,
-  labelButtonAdd = 'Nova consulta',
+  labelButtonAdd,
+  disabledOnAdd,
+  onFilter,
+  onOpenFilterAside,
+  options,
+  onChecked,
+  hasRounded,
+  onSort,
   onAdd,
-  ...rest
 }: TableProps) => {
   const [itemsChecked, setItemsChecked] = useState<string[]>([])
-  const [hasIndeterminate, setHasIndeterminate] = useState<CheckedState>()
+  const [hasIndeterminate, setHasIndeterminate] = useState<CheckedState>(false)
 
   const handleOnItemsSelected = (itemsChecked: string[]) => {
     if (onItemsSelected) {
@@ -43,6 +61,7 @@ export const Table: React.FC<TableProps> = ({
       setHasIndeterminate(false)
     }
   }
+
   const handleOnCheckChangedAll = (v: boolean) => {
     if (v) {
       const itemsForId = rows.map((row) => `${row.id}`) || []
@@ -59,27 +78,49 @@ export const Table: React.FC<TableProps> = ({
     setHasIndeterminate(v)
   }
 
+  const handleRemove = (items: string[]) => {
+    if (onItemsRemove) {
+      onItemsRemove(items).then(() => {
+        setItemsChecked([])
+        setHasIndeterminate(false)
+      })
+    }
+  }
+
   return (
     <S.TableContainer>
-      <Header
-        onAdd={onAdd}
-        itemsChecked={itemsChecked}
-        onItemsRemove={onItemsRemove}
-        iconButtonAdd={iconButtonAdd}
-        labelButtonAdd={labelButtonAdd}
-      />
+      {(onAdd || onFilter || onOpenFilterAside) && (
+        <Header
+          hasRounded={hasRounded}
+          disabledOnAdd={disabledOnAdd}
+          itemsChecked={itemsChecked}
+          iconButtonAdd={iconButtonAdd}
+          labelButtonAdd={labelButtonAdd}
+          onAdd={onAdd}
+          onFilter={onFilter}
+          onItemsRemove={handleRemove}
+          onOpenFilterAside={onOpenFilterAside}
+        />
+      )}
       <S.Wrapped>
         <S.TableWrapped>
           <THead
+            canRenderCheckbox={!!onItemsSelected}
             cols={cols}
             hasIndeterminate={hasIndeterminate}
             onCheckedChange={handleOnCheckChangedAll}
+            options={options}
+            onSort={onSort}
           />
           <TBody
+            hasRounded={hasRounded}
+            options={options}
             rows={rows}
+            onChecked={onChecked}
             itemsChecked={itemsChecked}
             handleClickRow={handleClickRow}
             setItemsChecked={setItemsChecked}
+            canRenderCheckbox={!!onItemsSelected}
             onItemsChecked={handleOnItemsSelected}
           />
         </S.TableWrapped>

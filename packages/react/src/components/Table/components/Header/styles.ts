@@ -3,18 +3,24 @@ import { styled } from '@/styles'
 export const HeaderContainer = styled('div', {
   display: 'flex',
   justifyContent: 'space-between',
-
-  position: 'absolute',
-  top: '0',
-  left: '0',
-  padding: '$4 $4 $4 $4',
-
   width: 'stretch',
+  height: 'auto',
+  flexDirection: 'column',
+  marginBottom: '$4',
+
+  '@table': {
+    flexDirection: 'row',
+  },
 })
 
 export const HeaderWrappedFilter = styled('div', {
   display: 'flex',
   gap: '$2',
+})
+
+export const WrappedSearch = styled('form', {
+  display: 'flex',
+  gap: '$3',
 })
 
 export const WrappedTrashIcon = styled('div', {
@@ -30,7 +36,6 @@ export const WrappedTrashIcon = styled('div', {
 })
 
 export const ButtonIcon = styled('button', {
-  // all: 'unset',
   background: '$primary-normal',
   width: '32px',
   height: '32px',
@@ -40,8 +45,4 @@ export const ButtonIcon = styled('button', {
   alignItems: 'center',
   justifyContent: 'center',
   border: 'none',
-
-  // borderColor: '$primary-normal',
-  // borderStyle: 'solid',
-  // borderWidth: '1px',
 })

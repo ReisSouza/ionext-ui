@@ -1,5 +1,11 @@
 # @ionext-ui/ts-config
 
+## 3.0.2
+
+### Patch Changes
+
+- updated all
+
 ## 3.0.1
 
 ### Patch Changes

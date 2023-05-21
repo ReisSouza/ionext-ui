@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Paragraph, ParagraphProps } from '@ionext-ui/react'
+import { ParagraphProps, Paragraph } from '@ionext-ui/react'
 
 export default {
   title: 'Typography/Paragraph',

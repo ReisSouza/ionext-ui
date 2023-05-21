@@ -4,19 +4,22 @@ export const TableContainer = styled('div', {
   overflowX: 'auto !important',
   overflowY: 'hidden',
   width: '100%',
+  maxWidth: 'stretch',
 
   background: '$white',
 
-  borderCollapse: 'collapse',
+  display: 'flex',
+  flexDirection: 'column',
 
+  borderCollapse: 'collapse',
+  height: '100%',
   position: 'relative',
-  borderWidth: '$default',
+  borderWidth: '$thin',
   borderColor: '$border',
   borderStyle: 'solid',
   borderRadius: '$1',
 
   padding: '$4',
-  paddingTop: '$16',
 })
 
 export const TableWrapped = styled('table', {
@@ -33,6 +36,7 @@ export const TableWrapped = styled('table', {
 })
 
 export const Wrapped = styled('div', {
-  maxHeight: '460px',
+  height: '100%',
+  width: 'stretch',
   overflowY: 'auto',
 })

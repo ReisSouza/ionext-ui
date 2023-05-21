@@ -11,11 +11,13 @@ export interface DisplayProps extends VariantProps<typeof S.DisplayContainer> {
   children?: React.ReactNode
 }
 
-export const Display: React.FC<DisplayProps> = ({
+const Display: React.FC<DisplayProps> = ({
   children,
   ...rest
 }: DisplayProps) => {
   return <S.DisplayContainer {...rest}>{children}</S.DisplayContainer>
 }
+
+export default Display
 
 Display.displayName = 'Display'

@@ -18,4 +18,6 @@ export const Heading: React.FC<HeadingProps> = ({
   return <S.HeadingContainer {...rest}>{children}</S.HeadingContainer>
 }
 
+export default Heading
+
 Heading.displayName = 'Heading'

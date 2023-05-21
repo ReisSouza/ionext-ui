@@ -1,10 +1,10 @@
 {
   "extends":"@ionext-ui/ts-config/react.json",
   "include": ["src"],
- "compilerOptions": {
+   "compilerOptions": {
   "baseUrl": ".",
   "paths": {
-    "@/*": ["./src/*"]
-  }
- }
-}
+    "@/*": ["./src/*"],
+  },
+},
+} 

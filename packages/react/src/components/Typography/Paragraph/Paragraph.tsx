@@ -12,11 +12,13 @@ export interface ParagraphProps
   children?: React.ReactNode
 }
 
-export const Paragraph: React.FC<ParagraphProps> = ({
+const Paragraph: React.FC<ParagraphProps> = ({
   children,
   ...rest
 }: ParagraphProps) => {
   return <S.ParagraphContainer {...rest}>{children}</S.ParagraphContainer>
 }
+
+export default Paragraph
 
 Paragraph.displayName = 'Paragraph'
