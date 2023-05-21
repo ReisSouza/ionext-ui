@@ -8,16 +8,22 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-a11y",
-    "@storybook/addon-docs"
+    "@storybook/addon-mdx-gfm",
   ],
   framework: {
-    name: '@storybook/nextjs',
+    // name: '@storybook/react-webpack5', // Remove this
+    name: "@storybook/react", // Add this
     options: {},
   },
   features: {
     storyStoreV7: true,
   },
-
+  // viteFinal: (config, { configType }) => {
+  //   if (configType === "PRODUCTION") {
+  //     config.base = "/ionext-ui/";
+  //   }
+  //   return config;
+  // },
   docs: {
     autodocs: true,
   },

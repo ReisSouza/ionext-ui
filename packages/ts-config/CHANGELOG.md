@@ -1,5 +1,11 @@
 # @ionext-ui/ts-config
 
+## 4.0.0
+
+### Major Changes
+
+- updted
+
 ## 3.0.2
 
 ### Patch Changes

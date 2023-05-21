@@ -22,12 +22,16 @@
     "@storybook/addon-essentials": "^7.0.7",
     "@storybook/addon-interactions": "^7.0.7",
     "@storybook/addon-links": "^7.0.7",
-    "@storybook/nextjs": "^7.0.12",
+    "@storybook/addon-mdx-gfm": "^7.0.7",
+    "@storybook/nextjs": "^7.0.7",
+    "@storybook/react": "^7.0.7",
+    "@storybook/react-vite": "^7.0.7",
     "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/testing-library": "^0.1.0",
+    "@vitejs/plugin-react": "^3.1.0",
     "babel-loader": "^8.3.0",
-    "eslint-plugin-storybook": "^0.6.12",
-    "storybook": "^7.0.7"
+    "storybook": "^7.0.7",
+    "vite": "^4.2.0"
   },
   "dependencies": {
     "@ionext-ui/eslint-config": "*",
@@ -43,11 +47,9 @@
     "@storybook/channel-websocket": "^7.0.7",
     "@storybook/preview-web": "^7.0.7",
     "icomoon-react": "^3.0.0",
-    "next": "^13.4.3",
     "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "remark-gfm": "^3.0.1",
     "zod": "^3.21.4"
   }
 }

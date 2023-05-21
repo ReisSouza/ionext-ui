@@ -1,6 +1,6 @@
 {
   "name": "@ionext-ui/tokens",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
