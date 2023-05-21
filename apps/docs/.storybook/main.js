@@ -12,7 +12,7 @@ module.exports = {
   ],
   framework: {
     // name: '@storybook/react-webpack5', // Remove this
-    name: "@storybook/react", // Add this
+    name: "@storybook/nextjs", // Add this
     options: {},
   },
   features: {
