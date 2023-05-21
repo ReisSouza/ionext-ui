@@ -1,7 +1,5 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalDependencies": ["**/.env.*local"],
-  "globalEnv": ["PORT"],
   "pipeline": {
     "dev": {
       "cache": false,
@@ -9,13 +7,7 @@
       "dependsOn": ["^build"]
     },
     "build": {
-      "outputs": [
-        "dist/**",
-        ".next/**",
-        "!.next/cache/**",
-        "build/**",
-        "public/build/**"
-      ],
+      "outputs": ["dist/**", "storybook-static/**"],
       "dependsOn": ["^build"]
     },
     "lint": {},
