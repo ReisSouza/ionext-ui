@@ -14,6 +14,9 @@ export * from '@/components/TextField/TextField'
 export * from '@/components/MultiStep/MultiStep'
 export * from '@/components/ButtonLink/ButtonLink'
 
+export * from '@/components/TimePicker/TimePicker'
+export { default as TimePicker } from '@/components/TimePicker/TimePicker'
+
 export * from '@/components/NavigationMenu/NavigationMenu'
 
 export * from '@/components/Popover/Popover'
